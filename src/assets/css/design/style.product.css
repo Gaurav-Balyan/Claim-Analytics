@@ -1,0 +1,47 @@
+@charset "UTF-8";
+.kt-portlet {border-radius:0px;}
+.kt-portlet .kt-portlet__body {padding:6px 8px; border-radius:0px;}
+.kt-portlet .kt-portlet__head {padding: 0 15px;}
+
+.dasboar_logo {padding:2px 25px;}
+
+.kt-subheader .kt-subheader__main .kt-subheader__title {font-size: 1.1rem;}
+.kt-portlet {margin-bottom: 10px;}
+@media (min-width: 1025px){
+.kt-header { height:45px; border-bottom: 1px solid #e0e0e0;}
+.kt-header--fixed.kt-subheader--fixed .kt-subheader {height: 40px; top: 45px;}
+.kt-container {padding:0 15px;}
+.kt-header--fixed.kt-subheader--fixed.kt-subheader--enabled .kt-wrapper {padding-top: 75px;}
+}
+
+
+.as_btn {background:#2f8489 !important; color:#fff;}
+.as_btn:hover {background:#f7ac1b !important; border:1px solid #f7ac1b !important; color:#fff;}
+.as_link {color:#2f8489; text-decoration-color:#f7ac1b;}
+.as_link:hover {color:#f7ac1b; text-decoration:none; }
+.fP_small {font-size:12px; display:block;}
+
+.kt-login.kt-login--v1 .kt-login__wrapper .kt-login__body .kt-login__form .kt-form {margin:3rem auto;}
+
+.lead_h {border-left:4px solid #2f8489; font-size:14px; color: #434349; font-weight:500;}
+
+.filer_result {}
+.filer_result h2 {    font-size: 15px;
+    color: #434349;
+    font-weight: 500;
+    padding:0px;
+	margin: 0px;
+   }
+.filer_result ul {list-style:none; margin:0px; padding:0px;}
+.filer_result ul li {display:inline-block; list-style:none; margin:0px; border-right:1px solid #e6e6e6; padding:0px 15px; font-size:12px; font-weight:600; color:#646c9a; min-width:155px; text-align:center; line-height:18px;}
+.filer_result ul li span {display:block; font-size:15px; font-weight:500; color: #434349; line-height: 18px;}
+.filer_result ul li:first-child {padding-left:0px; border-left: 1px solid #e6e6e6;}
+.filer_result ul li:last-child {border-right:0px; padding-right:7px;}
+.portlet_small_H {color: #646c9a;
+    display: block;
+    font-size: 12px;
+    margin-bottom:5px;}
+	
+.as_card .kt-widget26 .kt-widget26__content {padding-bottom:0px;}	
+.as_card .kt-widget26 .kt-widget26__content .kt-widget26__desc {margin-top:0px;}
+.as_card .kt-widget26__number,.kt-widget26__desc  {color:#fff !important;}
