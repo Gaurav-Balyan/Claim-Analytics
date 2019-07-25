@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-overview',
@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class OverviewComponent implements OnInit {
   userNameToShow: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.userNameToShow = localStorage.getItem('userName');
@@ -20,5 +20,4 @@ export class OverviewComponent implements OnInit {
     this.authService.logout();
     this.router.navigateByUrl('/login');
   }
-
 }

@@ -1,23 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component';
-import { OverviewComponent } from './risk-management/overview/overview.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+
+// Components
+import { AppComponent } from './app.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { LoginComponent } from './components/login/login.component';
+import { OverviewComponent } from './components/risk-management/overview/overview.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+
+// Routing
+import { AppRoutingModule } from './app-routing.module';
+
+// Guards
 import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     AdminComponent,
-    OverviewComponent,
     ForgotPasswordComponent,
+    LoginComponent,
+    OverviewComponent,
     ResetPasswordComponent
   ],
   imports: [
@@ -30,4 +36,4 @@ import { AuthGuard } from './guards/auth.guard';
   providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

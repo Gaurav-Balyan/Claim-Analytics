@@ -1,0 +1,119 @@
+<div class="kt-grid kt-grid--ver kt-grid--root">
+  <div
+    class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1"
+    id="kt_login"
+  >
+    <div
+      class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile"
+    >
+      <div
+        class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
+        style="background-image: url(./assets/media//bg/bg-4.jpg); height:625px;"
+      >
+        <div class="kt-grid__item">
+          <a href="pages/login.html" class="kt-login__logo">
+            <img src="./assets/media/logos/logo-4.png" style="width:35%;" />
+          </a>
+        </div>
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+          <div class="kt-grid__item kt-grid__item--middle">
+            <h3 class="kt-login__title">Welcome to AdminSure</h3>
+            <h4 class="kt-login__subtitle">
+              AdminSure is a Third Party Administrator (TPA) of Workers’
+              Compensation and Liability Programs.
+            </h4>
+          </div>
+        </div>
+        <div class="kt-grid__item">
+          <div class="kt-login__info">
+            <div class="kt-login__copyright">
+              &copy 2019 AdminSure
+            </div>
+            <div class="kt-login__menu">
+              <a
+                href="https://www.adminsure.com/Terms.aspx"
+                target="_blank"
+                class="kt-link"
+                >Terms and Conditions</a
+              >
+              <a
+                href="https://www.adminsure.com/Contact.aspx"
+                class="kt-link"
+                target="_blank"
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper"
+      >
+        <div class="kt-login__body">
+          <div class="kt-login__form">
+            <div class="mt-1">
+              <h3>Sign In To AdminSure</h3>
+            </div>
+            <form class="kt-form" name="form" action="" novalidate="novalidate">
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="text"
+                  placeholder="Email"
+                  name="email"
+                  autocomplete="off"
+                  [(ngModel)]="userLoginModel.username"
+                  #email="ngModel"
+                  required
+                  email
+                />
+              </div>
+              <!-- <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email is required</div>
+                <div *ngIf="email.errors.email">Email must be a valid email address</div>
+              </div> -->
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  [(ngModel)]="userLoginModel.password"
+                  #password="ngModel"
+                  required
+                  minlength="8"
+                />
+              </div>
+              <!-- <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                <div *ngIf="password.errors.required">Password is required</div>
+                <div *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+              </div> -->
+              <div class="row kt-login__extra mt-4">
+                <div class="col">
+                  <label class="kt-checkbox">
+                    <input type="checkbox" name="remember" /> Remember me
+                    <span></span>
+                  </label>
+                </div>
+                <div class="col kt-align-right">
+                  <a routerLink="/forgotPassword" id="" class="as_link"
+                    >Forget Password ?</a
+                  >
+                </div>
+              </div>
+              <div class="mt-4">
+                <button
+                  id="kt_login_signin_submit"
+                  class="btn btn-primary btn-elevate as_btn"
+                  (click)="login()"
+                >
+                  Sign In
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
