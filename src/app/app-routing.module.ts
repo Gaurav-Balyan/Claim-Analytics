@@ -7,9 +7,15 @@ import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/risk-management/overview/overview.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
+import { ClientDataResolver } from './services/client-data-resolver.service';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent },
+  {
+    path: 'login',
+    component: LoginComponent,
+    resolve: { data: ClientDataResolver }
+  },
   { path: 'admin', component: AdminComponent },
   { path: 'overview', component: OverviewComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },

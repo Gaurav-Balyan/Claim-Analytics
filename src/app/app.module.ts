@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -13,6 +13,9 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
+
+// Fake Backend
+import { FakeBackendInterceptor } from './helpers/fake-backend';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -33,7 +36,15 @@ import { AuthGuard } from './guards/auth.guard';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    // Comment this to remove fake backend
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FakeBackendInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

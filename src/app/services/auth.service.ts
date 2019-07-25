@@ -5,10 +5,7 @@ import { Observable, of } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-import { catchError, tap } from 'rxjs/internal/operators';
-import { JsonPipe } from '@angular/common';
-// import { AngularFireAuth } from "@angular/fire/auth";
-// import * as firebase from "firebase";
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -54,7 +51,6 @@ export class AuthService {
   }
 
   userAuthentication(userLoginData: UserLogin): Observable<any> {
-    debugger;
     console.log('Login JSON Data in service' + JSON.stringify(userLoginData));
     let url = 'http://localhost:4132/Token';
     // var data = "username=" + userName + "&password=" + password + "&grant_type=password";
@@ -68,7 +64,7 @@ export class AuthService {
 
   /* resetPasswordInit(email: string) { 
     return this.afAuth.auth.sendPasswordResetEmail(
-      email, 
+      email,
       { url: 'http://localhost:4200/auth' }); 
     } */
 }

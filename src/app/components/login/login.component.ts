@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
@@ -11,53 +11,37 @@ import { UserLogin } from '../../shared/models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
-  isSubmitted = false;
-  userName: string;
   loginDetails: any;
+  ClientDetails: any;
   userLoginModel: UserLogin = new UserLogin();
 
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    /* this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required]
-    }); */
+    // Needed resolver to prevent route being loaded before receiving client data
+    this.route.data.subscribe(({ data }) => {
+      this.ClientDetails = data[0];
+    });
   }
 
-  // get formControls() { return this.loginForm.controls; }
-
+  // To-Do
   login() {
-    debugger;
-    /* console.log(this.loginForm.value);
-    this.isSubmitted = true;
-    if (this.loginForm.invalid) {
-      return;
-    }
-    this.authService.login(this.loginForm.value);
-    this.userName = this.loginForm.value.email;
-    localStorage.setItem('userName', this.userName); */
     this.router.navigateByUrl('/admin');
   }
 
+  // To-Do
   getUserLoginData() {
     this.userLoginModel.grant_type = 'password';
-    console.log(
-      'Login Data in component' + JSON.stringify(this.userLoginModel)
-    );
     this.authService
       .userAuthentication(this.userLoginModel)
       .subscribe(loginData => {
-        debugger;
         this.loginDetails = loginData;
         sessionStorage.setItem('token', this.loginDetails.access_token);
-        // alert(this.sessiontoken);
-        console.log('Login Data details' + JSON.stringify(this.loginDetails));
       });
   }
 }
