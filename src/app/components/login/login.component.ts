@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
-import { UserLogin } from '../../shared/models/user';
+import { UserLogin } from '../../shared/models/user.model';
+import { ClientDetails } from 'src/app/shared/models/client-details.model';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,7 @@ import { UserLogin } from '../../shared/models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginDetails: any;
-  ClientDetails: any;
-  userLoginModel: UserLogin = new UserLogin();
+  clientDetails: ClientDetails;
 
   constructor(
     private authService: AuthService,
@@ -23,25 +22,18 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Needed resolver to prevent route being loaded before receiving client data
+    this.getClientDetails();
+  }
+
+  // Needed resolver to prevent route being loaded before receiving client data
+  getClientDetails() {
     this.route.data.subscribe(({ data }) => {
-      this.ClientDetails = data[0];
+      this.clientDetails = data[0];
     });
   }
 
   // To-Do
   login() {
     this.router.navigateByUrl('/admin');
-  }
-
-  // To-Do
-  getUserLoginData() {
-    this.userLoginModel.grant_type = 'password';
-    this.authService
-      .userAuthentication(this.userLoginModel)
-      .subscribe(loginData => {
-        this.loginDetails = loginData;
-        sessionStorage.setItem('token', this.loginDetails.access_token);
-      });
   }
 }

@@ -12,23 +12,23 @@
       >
         <div class="kt-grid__item">
           <a href="pages/login.html" class="kt-login__logo">
-            <img [src]="ClientDetails.vendorImage" style="width:35%;" />
+            <img [src]="clientDetails.vendorImage" style="width:35%;" />
           </a>
         </div>
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
           <div class="kt-grid__item kt-grid__item--middle">
             <h3 class="kt-login__title">
-              Welcome to {{ ClientDetails.vendorName }}
+              Welcome to {{ clientDetails.vendorName }}
             </h3>
             <h4 class="kt-login__subtitle">
-              {{ ClientDetails.vendorDescription }}
+              {{ clientDetails.vendorDescription }}
             </h4>
           </div>
         </div>
         <div class="kt-grid__item">
           <div class="kt-login__info">
             <div class="kt-login__copyright">
-              {{ ClientDetails.vendorCopyright }}
+              {{ clientDetails.vendorCopyright }}
             </div>
             <div class="kt-login__menu">
               <a
@@ -53,7 +53,7 @@
         <div class="kt-login__body">
           <div class="kt-login__form">
             <div class="mt-1">
-              <h3>Sign In To {{ ClientDetails.vendorName }}</h3>
+              <h3>Sign In To {{ clientDetails.vendorName }}</h3>
             </div>
             <form class="kt-form" name="form" action="" novalidate="novalidate">
               <div class="form-group">
@@ -63,8 +63,6 @@
                   placeholder="Email"
                   name="email"
                   autocomplete="off"
-                  [(ngModel)]="userLoginModel.username"
-                  #email="ngModel"
                   required
                   email
                 />
@@ -75,8 +73,6 @@
                   type="password"
                   placeholder="Password"
                   name="password"
-                  [(ngModel)]="userLoginModel.password"
-                  #password="ngModel"
                   required
                   minlength="8"
                 />
