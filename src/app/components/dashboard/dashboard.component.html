@@ -1,0 +1,17 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #snav [(opened)]="opened" mode="side">
+               <app-sidenav></app-sidenav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header class="mat-header" (toggleSideNav)="toggleSideNavBar($event)"></app-header>
+    <app-report></app-report>
+  </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+  <!-- <mat-sidenav-container class="example-container">
+    <mat-sidenav opened mode="side">Start content</mat-sidenav>
+    <mat-sidenav opened mode="side" position="end">End content</mat-sidenav>
+    Implicit main content
+  </mat-sidenav-container> -->

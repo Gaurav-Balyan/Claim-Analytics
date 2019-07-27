@@ -1,0 +1,9 @@
+<mat-toolbar>
+<a *ngIf="!toggleFlag" (click)="onHeaderClick()"><mat-icon>arrow_left</mat-icon>
+</a>
+<a *ngIf="toggleFlag" (click)="onHeaderClick()"><mat-icon>arrow_right</mat-icon>
+</a>
+<img src="./assets/media/logos/Adminsure_logo.PNG" />
+<span class="example-spacer"></span>
+<img src="./assets/media/logos/co.JPG" />
+</mat-toolbar>
