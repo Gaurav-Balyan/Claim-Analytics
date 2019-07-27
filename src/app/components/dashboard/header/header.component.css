@@ -1,3 +1,31 @@
-example-spacer {
+mat-toolbar {
+  padding-left: 2px;
+}
+
+section {
+  padding-left: 2px;
+}
+
+/* This fills the remaining space, by using flexbox. */
+.row-spacer {
   flex: 1 1 auto;
+}
+
+.section--button {
+  color: #959cb6;
+  background-color: rgb(1, 29, 51);
+}
+
+.section--button:hover {
+  color: rgb(1, 29, 51);
+  background-color: transparent;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.section--button__margin {
+  margin-left: 2px;
+  margin-right: 2px;
 }

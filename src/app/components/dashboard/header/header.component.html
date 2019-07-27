@@ -1,9 +1,27 @@
 <mat-toolbar>
-<a *ngIf="!toggleFlag" (click)="onHeaderClick()"><mat-icon>arrow_left</mat-icon>
-</a>
-<a *ngIf="toggleFlag" (click)="onHeaderClick()"><mat-icon>arrow_right</mat-icon>
-</a>
-<img src="./assets/media/logos/Adminsure_logo.PNG" />
-<span class="example-spacer"></span>
-<img src="./assets/media/logos/co.JPG" />
+    <span>
+        <a *ngIf="!toggleFlag" (click)="onHeaderClick()">
+            <mat-icon class="fas fa-angle-double-right pointer"></mat-icon>
+        </a>
+        <a *ngIf="toggleFlag" (click)="onHeaderClick()">
+            <mat-icon class="fas fa-angle-double-left pointer"></mat-icon>
+        </a>
+        <img src="./assets/media/logos/AdminSureLogo.jpg" />
+    </span>
+
+    <!-- This fills the remaining space of the current row -->
+    <span class="row-spacer"></span>
+
+    <span><img src="./assets/media/logos/co.jpg" /></span>
+    <span><button mat-button>Hi, User</button></span>
 </mat-toolbar>
+<hr />
+<section fxLayout="row">
+    <span>Home / Dashboard</span>
+    <span class="row-spacer"></span>
+    <span>
+        <button mat-button class="section--button" [routerLink]="[{ outlets: { report: ['report'] } }]">Publish</button>
+        <span class="spacer"></span>
+        <button mat-button class="section--button section--button__margin">Write</button>
+    </span>
+</section>

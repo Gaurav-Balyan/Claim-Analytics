@@ -7,16 +7,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() toggleSideNav = new EventEmitter();
-  toggleFlag = false;
+  toggleFlag = true;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onHeaderClick() {
     this.toggleFlag = !this.toggleFlag;
     this.toggleSideNav.emit(this.toggleFlag);
   }
-
 }

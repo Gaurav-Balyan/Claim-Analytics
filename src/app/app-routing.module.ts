@@ -6,8 +6,10 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/risk-management/overview/overview.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { ClientDataResolver } from './services/client-data-resolver.service';
+import { ReportComponent } from './components/dashboard/report/report.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -19,6 +21,11 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'overview', component: OverviewComponent },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    children: [{ path: 'report', component: ReportComponent, outlet: 'report' }]
+  },
   { path: 'resetPassword', component: ResetPasswordComponent }
 ];
 

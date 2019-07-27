@@ -34,6 +34,6 @@ export class LoginComponent implements OnInit {
 
   // To-Do
   login() {
-    this.router.navigateByUrl('/admin');
+    this.router.navigateByUrl('/dashboard');
   }
 }

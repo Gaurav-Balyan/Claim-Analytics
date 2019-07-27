@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,6 +22,10 @@ import { FakeBackendInterceptor } from './helpers/fake-backend';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
+import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
+import { HeaderComponent } from './components/dashboard/header/header.component';
+import { ReportComponent } from './components/dashboard/report/report.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +34,17 @@ import { AuthGuard } from './guards/auth.guard';
     ForgotPasswordComponent,
     LoginComponent,
     OverviewComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    SidenavComponent,
+    HeaderComponent,
+    ReportComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
