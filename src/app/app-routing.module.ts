@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    children: [{ path: 'report', component: ReportComponent, outlet: 'report' }]
+    children: [{ path: 'report', component: ReportComponent }]
   },
   { path: 'resetPassword', component: ResetPasswordComponent }
 ];
