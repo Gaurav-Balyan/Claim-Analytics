@@ -1,12 +1,12 @@
 <mat-toolbar>
     <span>
-        <a *ngIf="!toggleFlag" (click)="onHeaderClick()">
+        <a *ngIf="!showSidenav" (click)="onHeaderClick()">
             <mat-icon class="fas fa-angle-double-right pointer"></mat-icon>
         </a>
-        <a *ngIf="toggleFlag" (click)="onHeaderClick()">
+        <a *ngIf="showSidenav" (click)="onHeaderClick()">
             <mat-icon class="fas fa-angle-double-left pointer"></mat-icon>
         </a>
-        <img src="./assets/media/logos/AdminSureLogo.jpg" />
+        <span *ngIf="!showSidenav"><img src="./assets/media/logos/AdminSureLogo.jpg" /></span>
     </span>
 
     <!-- This fills the remaining space of the current row -->

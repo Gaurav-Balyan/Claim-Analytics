@@ -25,6 +25,10 @@ export class AuthService {
     );
   } */
 
+  getMenu() {
+    return this.http.get(`https://APIEndpoint/getClientDetails`);
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       return of(result as T);
@@ -62,9 +66,9 @@ export class AuthService {
     //   .catch(this.handleError);
   }
 
-  /* resetPasswordInit(email: string) { 
+  /* resetPasswordInit(email: string) {
     return this.afAuth.auth.sendPasswordResetEmail(
       email,
-      { url: 'http://localhost:4200/auth' }); 
+      { url: 'http://localhost:4200/auth' });
     } */
 }
