@@ -8,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   opened = true;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   toggleSideNavBar(showSidenav) {
     this.opened = showSidenav;
   }
-
 }

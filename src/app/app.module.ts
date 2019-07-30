@@ -13,6 +13,11 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { LoginComponent } from './components/login/login.component';
 import { OverviewComponent } from './components/risk-management/overview/overview.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
+import { HeaderComponent } from './components/dashboard/header/header.component';
+import { ReportComponent } from './components/dashboard/report/report.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MenuListItemComponent } from './components/dashboard/sidenav/menu-list-item/menu-list-item.component';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -22,10 +27,7 @@ import { FakeBackendInterceptor } from './helpers/fake-backend';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
-import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
-import { HeaderComponent } from './components/dashboard/header/header.component';
-import { ReportComponent } from './components/dashboard/report/report.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NavService } from './services/nav.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SidenavComponent,
     HeaderComponent,
     ReportComponent,
-    DashboardComponent
+    DashboardComponent,
+    MenuListItemComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
       provide: HTTP_INTERCEPTORS,
       useClass: FakeBackendInterceptor,
       multi: true
-    }
+    },
+    NavService
   ],
   bootstrap: [AppComponent]
 })

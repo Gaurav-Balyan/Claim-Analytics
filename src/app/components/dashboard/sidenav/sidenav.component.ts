@@ -8,11 +8,13 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit {
+  navItems: any;
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.getMenu().subscribe(res => {
-      console.log(res);
+      this.navItems = res;
     });
   }
 }

@@ -3,42 +3,8 @@
     <div class="sidebar-brand" fxLayout="row" fxLayoutAlign="center">
       <img src="./assets/media/logos/Adminsure_logo.PNG" />
     </div>
-    <div class="sidebar-menu">
-      <mat-accordion>
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Worker's Compensation
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <ul>
-            <li><a mat-button [routerLink]="['report']">Worker's Compensation 1</a></li>
-          </ul>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              General Liability
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <ul>
-            <li><a mat-button [routerLink]="[{ outlets: { report: ['report'] } }]">General Liability 1</a></li>
-          </ul>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel>
-          <mat-expansion-panel-header>
-            <mat-panel-title>
-              Subheaders
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-          <ul>
-            <li><a mat-button>Subheaders 1</a></li>
-          </ul>
-        </mat-expansion-panel>
-
-      </mat-accordion>
-    </div>
+    <mat-nav-list>
+      <app-menu-list-item *ngFor="let item of navItems" [item]="item"></app-menu-list-item>
+    </mat-nav-list>
   </div>
 </div>
