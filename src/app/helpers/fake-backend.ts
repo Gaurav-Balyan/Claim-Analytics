@@ -10,6 +10,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 import users from '../data/users.js';
+import navItems from '../data/menu.js';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -34,6 +35,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       switch (true) {
         case url.endsWith('/getClientDetails') && method === 'GET':
           return getUsers();
+        case url.endsWith('/getMenu') && method === 'GET':
+          return getMenu();
         default: {
           // pass through any requests not handled above
           return next.handle(request);
@@ -43,6 +46,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function getUsers() {
       return of(new HttpResponse({ status: 200, body: users }));
+    }
+
+    function getMenu() {
+      return of(new HttpResponse({ status: 200, body: navItems }));
     }
   }
 }

@@ -26,7 +26,7 @@ export class AuthService {
   } */
 
   getMenu() {
-    return this.http.get(`https://APIEndpoint/getClientDetails`);
+    return this.http.get(`https://APIEndpoint/getMenu`);
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

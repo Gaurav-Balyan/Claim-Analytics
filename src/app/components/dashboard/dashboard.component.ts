@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   opened = true;
 
   constructor() { }
@@ -14,9 +13,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleSideNavBar(toggleFlag) {
-    console.log("toggleFlag", toggleFlag);
-    this.opened = toggleFlag;
+  toggleSideNavBar(showSidenav) {
+    this.opened = showSidenav;
   }
 
 }
