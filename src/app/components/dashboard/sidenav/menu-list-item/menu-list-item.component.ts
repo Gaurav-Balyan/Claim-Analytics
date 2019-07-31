@@ -6,7 +6,7 @@ import {
   transition,
   trigger
 } from '@angular/animations';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { NavItem } from 'src/app/shared/models/nav-item.model';
 import { NavService } from 'src/app/services/nav.service';
@@ -32,11 +32,7 @@ export class MenuListItemComponent implements OnInit {
   @Input() item: NavItem;
   @Input() depth: number;
 
-  constructor(
-    public navService: NavService,
-    public router: Router,
-    private route: ActivatedRoute
-  ) {
+  constructor(public navService: NavService, public router: Router) {
     if (this.depth === undefined) {
       this.depth = 0;
     }
@@ -53,7 +49,8 @@ export class MenuListItemComponent implements OnInit {
 
   onItemSelected(item: NavItem) {
     if (!item.children || !item.children.length) {
-      this.router.navigate(['/dashboard/report'], { state: { data: item } });
+      this.navService.setReportState(item);
+      this.router.navigate(['/dashboard/report', item.displayName]);
       // this.navService.closeNav();
     }
     if (item.children && item.children.length) {

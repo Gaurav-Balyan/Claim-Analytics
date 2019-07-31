@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { NavService } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-report',
@@ -7,9 +8,16 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-  constructor(public router: Router) {}
+  constructor(
+    public router: Router,
+    private activatedRoute: ActivatedRoute,
+    private navService: NavService
+  ) {}
 
   ngOnInit() {
-    console.log('I am called', history.state.data);
+    this.activatedRoute.params.subscribe(params => {
+      console.log('I am called', this.navService.getReportState());
+      console.log('Params changed');
+    });
   }
 }

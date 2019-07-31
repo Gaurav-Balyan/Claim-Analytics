@@ -26,7 +26,7 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
-    children: [{ path: 'report', component: ReportComponent }]
+    children: [{ path: 'report/:name', component: ReportComponent }]
   },
   { path: 'resetPassword', component: ResetPasswordComponent }
 ];
