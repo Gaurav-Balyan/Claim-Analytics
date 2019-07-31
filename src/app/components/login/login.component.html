@@ -1,15 +1,9 @@
 <div class="kt-grid kt-grid--ver kt-grid--root">
-  <div
-    class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1"
-    id="kt_login"
-  >
+  <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
     <div
-      class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile"
-    >
-      <div
-        class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
-        style="background-image: url(./assets/media//bg/bg-4.jpg); height:625px;"
-      >
+      class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+      <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
+        style="background-image: url(./assets/media//bg/bg-4.jpg); height:625px;">
         <div class="kt-grid__item">
           <a href="pages/login.html" class="kt-login__logo">
             <img [src]="clientDetails.vendorImage" style="width:35%;" />
@@ -31,51 +25,36 @@
               {{ clientDetails.vendorCopyright }}
             </div>
             <div class="kt-login__menu">
-              <a
-                href="https://www.adminsure.com/Terms.aspx"
-                target="_blank"
-                class="kt-link"
-                >Terms and Conditions</a
-              >
-              <a
-                href="https://www.adminsure.com/Contact.aspx"
-                class="kt-link"
-                target="_blank"
-                >Contact</a
-              >
+              <a href="https://www.adminsure.com/Terms.aspx" target="_blank" class="kt-link">Terms and Conditions</a>
+              <a href="https://www.adminsure.com/Contact.aspx" class="kt-link" target="_blank">Contact</a>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper"
-      >
+      <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
         <div class="kt-login__body">
           <div class="kt-login__form">
             <div class="mt-1">
               <h3>Sign In To {{ clientDetails.vendorName }}</h3>
             </div>
-            <form class="kt-form" name="form" action="" novalidate="novalidate">
+            <form class="kt-form" #f="ngForm" (ngSubmit)="onLogin(f)">
               <div class="form-group">
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Email"
-                  name="email"
-                  autocomplete="off"
-                  required
-                  email
-                />
+                <input class="form-control" type="text" placeholder="Email" ngModel name="email" autocomplete="off"
+                  required #emailInput="ngModel" />
+                <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="alert alert-danger">
+                  <div *ngIf="emailInput.hasError('required')">
+                    Email is required.
+                  </div>
+                </div>
               </div>
               <div class="form-group">
-                <input
-                  class="form-control"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  required
-                  minlength="8"
-                />
+                <input class="form-control" type="password" placeholder="Password" ngModel name="password" required
+                  #pwInput="ngModel" />
+                <div *ngIf="pwInput.invalid && (pwInput.dirty || pwInput.touched)" class="alert alert-danger">
+                  <div *ngIf="pwInput.hasError('required')">
+                    Password is required.
+                  </div>
+                </div>
               </div>
               <div class="row kt-login__extra mt-4">
                 <div class="col">
@@ -85,17 +64,11 @@
                   </label>
                 </div>
                 <div class="col kt-align-right">
-                  <a routerLink="/forgotPassword" id="" class="as_link"
-                    >Forget Password ?</a
-                  >
+                  <a routerLink="/forgotPassword" id="" class="as_link">Forget Password ?</a>
                 </div>
               </div>
               <div class="mt-4">
-                <button
-                  id="kt_login_signin_submit"
-                  class="btn btn-primary btn-elevate as_btn"
-                  (click)="login()"
-                >
+                <button type="submit" id="kt_login_signin_submit" class="btn btn-primary btn-elevate as_btn">
                   Sign In
                 </button>
               </div>

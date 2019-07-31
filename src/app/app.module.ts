@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Fake Backend
 import { FakeBackendInterceptor } from './helpers/fake-backend';
+import { AuthInterceptor } from './helpers/auth-interceptor';
 
 // Guards
 import { AuthGuard } from './guards/auth.guard';
@@ -61,6 +62,7 @@ import { NavService } from './services/nav.service';
       useClass: FakeBackendInterceptor,
       multi: true
     },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     NavService
   ],
   bootstrap: [AppComponent]

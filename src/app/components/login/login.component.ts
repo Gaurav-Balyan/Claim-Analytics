@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
 import { UserLogin } from '../../shared/models/user.model';
@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder,
     private route: ActivatedRoute
   ) {}
 
@@ -33,7 +32,28 @@ export class LoginComponent implements OnInit {
   }
 
   // To-Do
-  login() {
+  onLogin(loginForm: NgForm) {
+    const username = loginForm.value.email;
+    const password = loginForm.value.password;
+    const userLoginData = {
+      username,
+      password
+    };
+
+    // Authenticate the user and set the token
+    // this.authService.authenticateUser(userLoginData).subscribe(
+    //   res => {
+    //     console.log(res);
+    //     if (res) {
+    //       localStorage.setItem('ACCESS_TOKEN', 'access_token');
+    //       this.router.navigateByUrl('/dashboard');
+    //     }
+    //   },
+    //   err => {
+    //     console.log(err);
+    //   }
+    // );
+
     this.router.navigateByUrl('/dashboard');
   }
 }
