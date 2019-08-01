@@ -1,13 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminComponent } from './components/admin/admin.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/login/login.component';
-import { OverviewComponent } from './components/risk-management/overview/overview.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
 import { ClientDataResolver } from './services/client-data-resolver.service';
 import { ReportComponent } from './components/dashboard/report/report.component';
 import { AuthGuard } from './guards/auth.guard';
