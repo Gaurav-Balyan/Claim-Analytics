@@ -21,15 +21,12 @@ const routes: Routes = [
     resolve: { data: ClientDataResolver }
   },
   { path: 'cards', component: CardsComponent, canActivate: [AuthGuard] },
-  { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
-  { path: 'forgotPassword', component: ForgotPasswordComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [{ path: 'report/:name', component: ReportComponent }]
-  },
-  { path: 'resetPassword', component: ResetPasswordComponent }
+  }
 ];
 
 @NgModule({
