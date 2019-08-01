@@ -8,11 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 // Components
 import { AppComponent } from './app.component';
-import { AdminComponent } from './components/admin/admin.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/login/login.component';
-import { OverviewComponent } from './components/risk-management/overview/overview.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { SidenavComponent } from './components/dashboard/sidenav/sidenav.component';
 import { HeaderComponent } from './components/dashboard/header/header.component';
 import { ReportComponent } from './components/dashboard/report/report.component';
@@ -34,11 +30,7 @@ import { CardsComponent } from './components/cards/cards.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
-    ForgotPasswordComponent,
     LoginComponent,
-    OverviewComponent,
-    ResetPasswordComponent,
     SidenavComponent,
     HeaderComponent,
     ReportComponent,
