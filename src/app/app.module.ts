@@ -29,6 +29,7 @@ import { AuthInterceptor } from './helpers/auth-interceptor';
 // Guards
 import { AuthGuard } from './guards/auth.guard';
 import { NavService } from './services/nav.service';
+import { CardsComponent } from './components/cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NavService } from './services/nav.service';
     HeaderComponent,
     ReportComponent,
     DashboardComponent,
-    MenuListItemComponent
+    MenuListItemComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

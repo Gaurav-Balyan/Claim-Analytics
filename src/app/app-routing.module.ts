@@ -11,6 +11,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ClientDataResolver } from './services/client-data-resolver.service';
 import { ReportComponent } from './components/dashboard/report/report.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CardsComponent } from './components/cards/cards.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -19,7 +20,7 @@ const routes: Routes = [
     component: LoginComponent,
     resolve: { data: ClientDataResolver }
   },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'cards', component: CardsComponent, canActivate: [AuthGuard] },
   { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard] },
   { path: 'forgotPassword', component: ForgotPasswordComponent },
   {

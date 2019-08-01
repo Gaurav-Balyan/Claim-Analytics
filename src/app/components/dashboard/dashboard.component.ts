@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  toggleSideNavBar(showSidenav) {
+  onToggleSideNavBar(showSidenav) {
     this.opened = showSidenav;
   }
 }

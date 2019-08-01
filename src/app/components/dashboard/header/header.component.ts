@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Output() toggleSideNav = new EventEmitter();
   @Input() showSidenav: boolean;
+  @Input() showCard: boolean;
 
   constructor() {}
 

@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <span>
+    <span *ngIf="!showCard">
         <a *ngIf="!showSidenav" (click)="onHeaderClick()">
             <mat-icon class="fas fa-angle-double-right pointer"></mat-icon>
         </a>
