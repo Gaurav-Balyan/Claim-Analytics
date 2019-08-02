@@ -1,7 +1,13 @@
 export interface NavItem {
   displayName: string;
-  disabled?: boolean;
   iconName: string;
+  permission: Permission;
+  disabled?: boolean;
   route?: string;
   children?: NavItem[];
+}
+
+export interface Permission {
+  read: string;
+  write: string;
 }

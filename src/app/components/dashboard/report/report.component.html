@@ -1,5 +1,7 @@
-<div class="kt-subheader__wrapper">
-  <button class="btn kt-subheader__btn-secondary" (click)="publishReport()">Publish</button>
-  <button class="btn kt-subheader__btn-secondary" (click)="showReportTest()">Write</button>
-</div>
-<div style=" width: 100%;" [ngStyle]="{ 'height': (screenHeight-150)+ 'px' }" #reportContainer></div>
+<section fxLayout="row">
+  <span class="row-spacer"></span>
+  <button *ngIf="item.permission?.write" mat-button class="section--button" (click)="publishReport()">Publish</button>
+  <button *ngIf="item.permission?.read" mat-button class="section--button section--button__margin"
+    (click)="showReportTest()">Write</button>
+</section>
+<div class="report" [ngStyle]="{'height': (screenHeight-150)+ 'px' }" #reportContainer>abc</div>

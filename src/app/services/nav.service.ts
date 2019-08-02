@@ -1,12 +1,13 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
+import { NavItem } from 'src/app/shared/models/nav-item.model';
+
 @Injectable()
 export class NavService {
-  public appDrawer: any;
-  public currentUrl = new BehaviorSubject<string>(undefined);
-  private reportData: any;
+  currentUrl = new BehaviorSubject<string>(undefined);
+  private selectedNavItem: NavItem;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event: Event) => {
@@ -16,20 +17,12 @@ export class NavService {
     });
   }
 
-  setReportState(data) {
-    this.reportData = data;
-    console.log('Report data set', data);
+  setSelectedNavItem(navItem: NavItem) {
+    this.selectedNavItem = navItem;
   }
 
-  getReportState() {
-    return this.reportData;
-  }
-
-  public closeNav() {
-    this.appDrawer.close();
-  }
-
-  public openNav() {
-    this.appDrawer.open();
+  getSelectedNavItem() {
+    // return the items of object not the reference
+    return { ...this.selectedNavItem };
   }
 }

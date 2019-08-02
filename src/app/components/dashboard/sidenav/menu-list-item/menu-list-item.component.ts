@@ -49,9 +49,8 @@ export class MenuListItemComponent implements OnInit {
 
   onItemSelected(item: NavItem) {
     if (!item.children || !item.children.length) {
-      this.navService.setReportState(item);
+      this.navService.setSelectedNavItem(item);
       this.router.navigate(['/dashboard/report', item.displayName]);
-      // this.navService.closeNav();
     }
     if (item.children && item.children.length) {
       this.expanded = !this.expanded;

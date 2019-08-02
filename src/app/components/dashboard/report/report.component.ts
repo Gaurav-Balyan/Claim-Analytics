@@ -4,6 +4,7 @@ import { NavService } from 'src/app/services/nav.service';
 import { AuthService } from '../../../services/auth.service';
 import * as pbi from 'powerbi-client';
 import { UserService } from '../../../services/user.service';
+import { NavItem } from 'src/app/shared/models/nav-item.model';
 
 @Component({
   selector: 'app-report',
@@ -11,6 +12,7 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
+  item: NavItem;
   powerBIDetails: any;
   public screenHeight: number;
   @ViewChild('reportContainer', { static: false }) reportContainer: ElementRef;
@@ -24,8 +26,10 @@ export class ReportComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      console.log('I am called', this.navService.getReportState());
-      console.log('Params changed');
+      console.log('I am called', this.navService.getSelectedNavItem());
+
+      // Set the currently active item in menu so we can place authorization
+      this.item = this.navService.getSelectedNavItem();
     });
     this.getPowerBIDetails();
     this.screenHeight = window.screen.height;
@@ -39,30 +43,31 @@ export class ReportComponent implements OnInit {
   }
 
   showReportTest() {
-    let accessToken = this.powerBIDetails.EmbedToken.token;
-    let groupWorkspaceId = '0335be74-d584-45c2-a82c-19ede3845f5d';
-    let embedUrl =
+    const accessToken = this.powerBIDetails.EmbedToken.token;
+    const groupWorkspaceId = '0335be74-d584-45c2-a82c-19ede3845f5d';
+    const embedUrl =
       this.powerBIDetails.EmbedUrl +
       this.powerBIDetails.Id +
       '&groupId=' +
       groupWorkspaceId;
-    let embedReportId = this.powerBIDetails.Id;
+    const embedReportId = this.powerBIDetails.Id;
 
-    let config = {
+    const config = {
       type: 'report',
       tokenType: pbi.models.TokenType.Embed,
-      accessToken: accessToken,
-      embedUrl: embedUrl,
+      accessToken,
+      embedUrl,
       id: embedReportId,
       settings: {}
     };
-    let reportContainer = this.reportContainer.nativeElement;
-    let powerbi = new pbi.service.Service(
+
+    const reportContainer = this.reportContainer.nativeElement;
+    const powerbi = new pbi.service.Service(
       pbi.factories.hpmFactory,
       pbi.factories.wpmpFactory,
       pbi.factories.routerFactory
     );
-    let report = powerbi.embed(reportContainer, config);
+    const report = powerbi.embed(reportContainer, config);
     report.off('loaded');
     report.on('loaded', () => {
       console.log('Loaded');
@@ -73,38 +78,38 @@ export class ReportComponent implements OnInit {
   }
 
   publishReport() {
-    let accessToken = this.powerBIDetails.EmbedToken.token;
-    let embedUrl = this.powerBIDetails.EmbedUrl;
-    let embedReportId = this.powerBIDetails.Id;
+    const accessToken = this.powerBIDetails.EmbedToken.token;
+    const embedUrl = this.powerBIDetails.EmbedUrl;
+    const embedReportId = this.powerBIDetails.Id;
 
     // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
-    let config = {
+    const config = {
       type: 'report',
       tokenType: pbi.models.TokenType.Embed,
-      accessToken: accessToken,
-      embedUrl: embedUrl,
+      accessToken,
+      embedUrl,
       id: embedReportId
       // permissions: '',
-      //viewMode:'',
+      // viewMode:'',
       /* ISettings: {
           filterPaneEnabled: true,
           navContentPaneEnabled: true
       } */
     };
 
-    let reportContainer = <HTMLElement>(
-      document.getElementById('reportContainer')
-    );
+    const reportContainer = document.getElementById(
+      'reportContainer'
+    ) as HTMLElement;
 
     // Embed the report and display it within the div container.
-    let powerbi = new pbi.service.Service(
+    const powerbi = new pbi.service.Service(
       pbi.factories.hpmFactory,
       pbi.factories.wpmpFactory,
       pbi.factories.routerFactory
     );
-    let report = powerbi.embed(reportContainer, config);
+    const report = powerbi.embed(reportContainer, config);
     report.off('loaded');
-    report.on('loaded', function() {
+    report.on('loaded', () => {
       console.log('Loaded');
     });
   }
