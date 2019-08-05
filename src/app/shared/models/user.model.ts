@@ -1,5 +1,5 @@
 export interface UserLogin {
   grant_type?: string;
-  username: string;
+  userid: string;
   password: string;
 }

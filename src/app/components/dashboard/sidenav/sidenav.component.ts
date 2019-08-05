@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '../../../services/auth.service';
+import { NavService } from 'src/app/services/nav.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -10,11 +10,11 @@ import { AuthService } from '../../../services/auth.service';
 export class SidenavComponent implements OnInit {
   navItems: any;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient, private authService: NavService) {}
 
   ngOnInit() {
     this.authService.getMenu().subscribe(res => {
-      this.navItems = res;
+      this.navItems = res.navItems;
     });
   }
 }

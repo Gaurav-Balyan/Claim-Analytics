@@ -26,6 +26,7 @@ import { AuthInterceptor } from './helpers/auth-interceptor';
 import { AuthGuard } from './guards/auth.guard';
 import { NavService } from './services/nav.service';
 import { CardsComponent } from './components/cards/cards.component';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CardsComponent } from './components/cards/cards.component';
     ReportComponent,
     DashboardComponent,
     MenuListItemComponent,
-    CardsComponent
+    CardsComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,

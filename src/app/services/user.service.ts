@@ -24,10 +24,11 @@ export class UserService {
     return this.http.get(this.rootUrl + '/api/GetUserClaims');
   }
 
-  powerBIDetails(): Observable<any> {
-    const url =
+  powerBIDetails(reportId): Observable<any> {
+   // const url =
       'http://localhost:4132/api/PowerBI/getDashboardEmbedToken?username=shailendra.shaunak@digitangle-india.com&roles=null';
-    const reqHeader = new HttpHeaders({
+      const url = 'http://localhost:4132/api/PowerBI/getDashboardEmbedToken?username=shailendra.shaunak@digitangle-india.com&roles=null&pbiReportId='+ reportId;
+      const reqHeader = new HttpHeaders({
       'Content-Type': 'application/x-www-urlencoded'
     });
     return this.http.get(url, { headers: reqHeader });

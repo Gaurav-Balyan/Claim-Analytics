@@ -29,37 +29,61 @@ export class ReportComponent implements OnInit {
       console.log('I am called', this.navService.getSelectedNavItem());
 
       // Set the currently active item in menu so we can place authorization
-      this.item = this.navService.getSelectedNavItem();
+      this.item = this.navService.getSelectedNavItem()
+      this.getPowerBIDetails();
     });
-    this.getPowerBIDetails();
     this.screenHeight = window.screen.height;
   }
 
   getPowerBIDetails() {
-    this.userService.powerBIDetails().subscribe(powerBIData => {
+    this.userService.powerBIDetails(this.item.reportId).subscribe(powerBIData => {
       this.powerBIDetails = powerBIData;
-      console.log('Login Data details' + JSON.stringify(this.powerBIDetails));
+      this.showReport('Read');
     });
   }
 
-  showReportTest() {
+  showReport(mode) {
     const accessToken = this.powerBIDetails.EmbedToken.token;
     const groupWorkspaceId = '0335be74-d584-45c2-a82c-19ede3845f5d';
     const embedUrl =
       this.powerBIDetails.EmbedUrl +
       this.powerBIDetails.Id +
-      '&groupId=' +
-      groupWorkspaceId;
+      '&groupId=' + groupWorkspaceId;
     const embedReportId = this.powerBIDetails.Id;
-
-    const config = {
+    let config = {
       type: 'report',
       tokenType: pbi.models.TokenType.Embed,
       accessToken,
       embedUrl,
       id: embedReportId,
+      permissions:pbi.models.Permissions.All,
+      viewMode: pbi.models.ViewMode.View,
       settings: {}
     };
+
+    if(mode ==='Write'){
+      config = {
+        type: 'report',
+        tokenType: pbi.models.TokenType.Embed,
+        accessToken,
+        embedUrl,
+        id: embedReportId,
+        permissions:pbi.models.Permissions.All,
+        viewMode: pbi.models.ViewMode.Edit,
+        settings: {}
+      };
+    } else if(mode === 'Publish'){
+      config = {
+        type: 'report',
+        tokenType: pbi.models.TokenType.Embed,
+        accessToken,
+        embedUrl,
+        id: embedReportId,
+        permissions:pbi.models.Permissions.All,
+        viewMode: pbi.models.ViewMode.Edit,
+        settings: {}
+      };
+    }
 
     const reportContainer = this.reportContainer.nativeElement;
     const powerbi = new pbi.service.Service(
@@ -67,6 +91,7 @@ export class ReportComponent implements OnInit {
       pbi.factories.wpmpFactory,
       pbi.factories.routerFactory
     );
+    let cleanContainer= powerbi.reset(reportContainer);
     const report = powerbi.embed(reportContainer, config);
     report.off('loaded');
     report.on('loaded', () => {
@@ -97,9 +122,8 @@ export class ReportComponent implements OnInit {
       } */
     };
 
-    const reportContainer = document.getElementById(
-      'reportContainer'
-    ) as HTMLElement;
+    // Typecasting ViewChild into a div as it is required to embed report
+    const reportContainer = this.reportContainer.nativeElement as HTMLElement;
 
     // Embed the report and display it within the div container.
     const powerbi = new pbi.service.Service(
@@ -107,6 +131,7 @@ export class ReportComponent implements OnInit {
       pbi.factories.wpmpFactory,
       pbi.factories.routerFactory
     );
+    let cleanContainer= powerbi.reset(reportContainer);
     const report = powerbi.embed(reportContainer, config);
     report.off('loaded');
     report.on('loaded', () => {

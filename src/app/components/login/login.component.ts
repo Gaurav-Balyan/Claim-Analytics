@@ -13,6 +13,7 @@ import { ClientDetails } from 'src/app/shared/models/client-details.model';
 })
 export class LoginComponent implements OnInit {
   clientDetails: ClientDetails;
+  loginError: string;
 
   constructor(
     private authService: AuthService,
@@ -31,29 +32,28 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // To-Do
   onLogin(loginForm: NgForm) {
-    const username = loginForm.value.email;
-    const password = loginForm.value.password;
-    const userLoginData = {
-      username,
+    const userid: string = loginForm.value.email;
+    const password: string = loginForm.value.password;
+    const userLoginData: UserLogin = {
+      userid,
       password
     };
 
-    // Authenticate the user and set the token
-    // this.authService.authenticateUser(userLoginData).subscribe(
-    //   res => {
-    //     console.log(res);
-    //     if (res) {
-    //       localStorage.setItem('ACCESS_TOKEN', 'access_token');
-    //       this.router.navigateByUrl('/dashboard');
-    //     }
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // );
-
-    this.router.navigateByUrl('/cards');
+   // Authenticate the user and set the token
+    this.authService.authenticateUser(userLoginData).subscribe(
+      res => {
+        if (res.Token!= 'Invalid User!') {
+          localStorage.setItem('ACCESS_TOKEN', res.Token);
+          this.router.navigateByUrl('/dashboard');
+        }
+        else{
+          this.loginError = 'Email or Password is incorrect';
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

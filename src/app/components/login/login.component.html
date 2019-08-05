@@ -55,6 +55,9 @@
                     Password is required.
                   </div>
                 </div>
+                <div *ngIf="loginError" class="alert alert-danger">
+                      {{loginError}}
+                </div>
               </div>
               <div class="row kt-login__extra mt-4">
                 <div class="col">
@@ -64,7 +67,7 @@
                   </label>
                 </div>
                 <div class="col kt-align-right">
-                  <a routerLink="/forgotPassword" id="" class="as_link">Forget Password ?</a>
+                  <a routerLink="/forgetPassword" id="" class="as_link">Forget Password ?</a>
                 </div>
               </div>
               <div class="mt-4">
