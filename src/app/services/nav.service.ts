@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
 
 import { NavItem } from 'src/app/shared/models/nav-item.model';
+import { MENUURL } from '../shared/constants';
 
 @Injectable()
 export class NavService {
@@ -20,14 +21,14 @@ export class NavService {
   }
 
   getMenu(): Observable<any> {
-    return this.http.get(`http://localhost:85/api/Authorization?userid=822`);
+    return this.http.get(MENUURL);
   }
 
   setSelectedNavItem(navItem: NavItem) {
     this.selectedNavItem = navItem;
   }
 
-  getSelectedNavItem() {
+  getSelectedNavItem(): NavItem {
     // return the items of object not the reference
     return { ...this.selectedNavItem };
   }

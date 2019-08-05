@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NavService } from 'src/app/services/nav.service';
-import { AuthService } from '../../../services/auth.service';
 import * as pbi from 'powerbi-client';
-import { UserService } from '../../../services/user.service';
+
+import { ReportService } from '../../../services/report.service';
 import { NavItem } from 'src/app/shared/models/nav-item.model';
+import { READ, WRITE, PUBLISH } from 'src/app/shared/constants';
 
 @Component({
   selector: 'app-report',
@@ -21,24 +22,25 @@ export class ReportComponent implements OnInit {
     public router: Router,
     private activatedRoute: ActivatedRoute,
     private navService: NavService,
-    private userService: UserService
-  ) {}
+    private reportService: ReportService
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       console.log('I am called', this.navService.getSelectedNavItem());
 
-      // Set the currently active item in menu so we can place authorization
+      // Set the currently active item in menu
       this.item = this.navService.getSelectedNavItem()
-      this.getPowerBIDetails();
+      this.getPowerBIDetails(this.item.reportId);
     });
     this.screenHeight = window.screen.height;
   }
 
-  getPowerBIDetails() {
-    this.userService.powerBIDetails(this.item.reportId).subscribe(powerBIData => {
+  // Fetch the PowerBI report for selected reportId
+  getPowerBIDetails(selectedReportId) {
+    this.reportService.powerBIDetails(selectedReportId).subscribe(powerBIData => {
       this.powerBIDetails = powerBIData;
-      this.showReport('Read');
+      this.showReport(READ);
     });
   }
 
@@ -50,38 +52,36 @@ export class ReportComponent implements OnInit {
       this.powerBIDetails.Id +
       '&groupId=' + groupWorkspaceId;
     const embedReportId = this.powerBIDetails.Id;
-    let config = {
+    let config = {};
+
+    const defConfig = {
       type: 'report',
       tokenType: pbi.models.TokenType.Embed,
       accessToken,
       embedUrl,
       id: embedReportId,
-      permissions:pbi.models.Permissions.All,
+      settings: {},
+      permissions: pbi.models.Permissions.All,
       viewMode: pbi.models.ViewMode.View,
-      settings: {}
     };
 
-    if(mode ==='Write'){
+    // Setting config based on authorization status of user
+    if (mode === READ) {
       config = {
-        type: 'report',
-        tokenType: pbi.models.TokenType.Embed,
-        accessToken,
-        embedUrl,
-        id: embedReportId,
-        permissions:pbi.models.Permissions.All,
-        viewMode: pbi.models.ViewMode.Edit,
-        settings: {}
+        ...defConfig
+      }
+    }
+    else if (mode === WRITE) {
+      config = {
+        ...defConfig,
+        permissions: pbi.models.Permissions.All,
+        viewMode: pbi.models.ViewMode.Edit
       };
-    } else if(mode === 'Publish'){
+    } else if (mode === PUBLISH) {
       config = {
-        type: 'report',
-        tokenType: pbi.models.TokenType.Embed,
-        accessToken,
-        embedUrl,
-        id: embedReportId,
-        permissions:pbi.models.Permissions.All,
-        viewMode: pbi.models.ViewMode.Edit,
-        settings: {}
+        ...defConfig,
+        permissions: pbi.models.Permissions.All,
+        viewMode: pbi.models.ViewMode.Edit
       };
     }
 
@@ -91,51 +91,20 @@ export class ReportComponent implements OnInit {
       pbi.factories.wpmpFactory,
       pbi.factories.routerFactory
     );
-    let cleanContainer= powerbi.reset(reportContainer);
+
+    // Reset the container to load the next report
+    powerbi.reset(reportContainer);
+
+    // Embed the report in the container here
     const report = powerbi.embed(reportContainer, config);
+
+    // Various handlers for report
     report.off('loaded');
     report.on('loaded', () => {
       console.log('Loaded');
     });
     report.on('error', () => {
-      this.getPowerBIDetails();
-    });
-  }
 
-  publishReport() {
-    const accessToken = this.powerBIDetails.EmbedToken.token;
-    const embedUrl = this.powerBIDetails.EmbedUrl;
-    const embedReportId = this.powerBIDetails.Id;
-
-    // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
-    const config = {
-      type: 'report',
-      tokenType: pbi.models.TokenType.Embed,
-      accessToken,
-      embedUrl,
-      id: embedReportId
-      // permissions: '',
-      // viewMode:'',
-      /* ISettings: {
-          filterPaneEnabled: true,
-          navContentPaneEnabled: true
-      } */
-    };
-
-    // Typecasting ViewChild into a div as it is required to embed report
-    const reportContainer = this.reportContainer.nativeElement as HTMLElement;
-
-    // Embed the report and display it within the div container.
-    const powerbi = new pbi.service.Service(
-      pbi.factories.hpmFactory,
-      pbi.factories.wpmpFactory,
-      pbi.factories.routerFactory
-    );
-    let cleanContainer= powerbi.reset(reportContainer);
-    const report = powerbi.embed(reportContainer, config);
-    report.off('loaded');
-    report.on('loaded', () => {
-      console.log('Loaded');
     });
   }
 }
