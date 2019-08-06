@@ -15,4 +15,9 @@
     <!-- <span><img src="./assets/media/logos/co.jpg" /></span> -->
     <span><button mat-button>Hi, {{ userName }}</button></span>
 </mat-toolbar>
+<section *ngIf="showChip" fxLayout="row" fxLayoutAlign="end start">
+    <mat-chip-list aria-label="user selection">
+        <mat-chip color="accent" selected class="chip__margin applyCursor" (click)="onLogout()">Logout</mat-chip>
+    </mat-chip-list>
+</section>
 <hr />
