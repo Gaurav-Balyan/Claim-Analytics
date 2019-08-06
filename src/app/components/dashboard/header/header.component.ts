@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
   showChip: boolean;
   userName: string;
 
-  constructor(private authService, private router: Router) {}
+  constructor(private authService:AuthService , private router: Router) {}
 
   ngOnInit() {
     const userData = this.authService.getUserData();
@@ -23,6 +24,10 @@ export class HeaderComponent implements OnInit {
   onHeaderClick() {
     this.showSidenav = !this.showSidenav;
     this.toggleSideNav.emit(this.showSidenav);
+  }
+
+  onShowChip(){
+    this.showChip = !this.showChip;
   }
 
   onLogout() {

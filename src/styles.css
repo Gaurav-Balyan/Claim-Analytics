@@ -16,7 +16,7 @@ body {
 }
 
 .chip__margin {
-  margin-right: 20px;
+  margin-right: 60px !important;
 }
 
 .applyCursor {

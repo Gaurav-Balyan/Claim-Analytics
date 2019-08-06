@@ -10,8 +10,9 @@ import { LOGINURL } from '../shared/constants';
 })
 export class AuthService {
   private user = {};
+
   constructor(private http: HttpClient) { 
-    console.log('Auth');
+    
   }
 
   authenticateUser(userLoginData: UserLogin): Observable<any> {
