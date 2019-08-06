@@ -1,7 +1,7 @@
 <section fxLayout="row">
   <span class="row-spacer"></span>
-  <button *ngIf="item.permission?.publish" mat-button class="section--button" (click)="showReport('Publish')">Publish</button>
+  <button *ngIf="item.permission?.publish" mat-button class="section--button" (click)="showReport('Publish')">Share</button>
   <button *ngIf="item.permission?.write" mat-button class="section--button section--button__margin"
-    (click)="showReport('Write')">Write</button>
+    (click)="showReport('Write')">Modify</button>
 </section>
 <div *ngIf="item.permission?.read" class="report" [ngStyle]="{'height': (screenHeight-150)+ 'px' }" #reportContainer></div>

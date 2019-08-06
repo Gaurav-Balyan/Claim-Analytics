@@ -44,6 +44,7 @@ export class ReportComponent implements OnInit {
     });
   }
 
+  // Used to display the PowerBI report
   showReport(mode) {
     const accessToken = this.powerBIDetails.EmbedToken.token;
     const groupWorkspaceId = '0335be74-d584-45c2-a82c-19ede3845f5d';
