@@ -43,9 +43,10 @@ export class LoginComponent implements OnInit {
    // Authenticate the user and set the token
     this.authService.authenticateUser(userLoginData).subscribe(
       res => {
-        if (res.Token!= 'Invalid User!') {
-          localStorage.setItem('ACCESS_TOKEN', res.Token);
-          this.router.navigateByUrl('/dashboard');
+        if (res.token!= 'Invalid User!') {
+          this.authService.setUserData(res);
+          localStorage.setItem('ACCESS_TOKEN', res.token);
+          this.router.navigateByUrl('/cards');
         }
         else{
           this.loginError = 'Email or Password is incorrect';

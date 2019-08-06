@@ -9,15 +9,26 @@ import { LOGINURL } from '../shared/constants';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  private user = {};
+  constructor(private http: HttpClient) { 
+    console.log('Auth');
+  }
 
   authenticateUser(userLoginData: UserLogin): Observable<any> {
     return this.http.post(LOGINURL, userLoginData);
   }
 
-  forgetPassword(email: string){
+  setUserData(user) {
+    this.user = user;
+  }
+
+  getUserData() {
+    return { ...this.user };
+  }
+
+  forgetPassword(email: string) {
     // To-Do
-    return of(1,2,3,4,5);
+    return of(1, 2, 3, 4, 5);
   }
 
   public isLoggedIn() {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Event, NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -6,13 +6,17 @@ import { Observable } from 'rxjs';
 
 import { NavItem } from 'src/app/shared/models/nav-item.model';
 import { MENUURL } from '../shared/constants';
+import { AuthService } from './auth.service';
 
-@Injectable()
-export class NavService {
+@Injectable({
+  providedIn: 'root'
+})
+export class NavService implements OnInit {
   currentUrl = new BehaviorSubject<string>(undefined);
   private selectedNavItem: NavItem;
+  private userId: string;
 
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, private authService: AuthService) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.currentUrl.next(event.urlAfterRedirects);
@@ -20,8 +24,14 @@ export class NavService {
     });
   }
 
+  ngOnInit() {
+
+  }
+
   getMenu(): Observable<any> {
-    return this.http.get(MENUURL);
+    const userData = this.authService.getUserData();
+    this.userId = userData['userId'];
+    return this.http.get(`${MENUURL}${this.userId}`);
   }
 
   setSelectedNavItem(navItem: NavItem) {

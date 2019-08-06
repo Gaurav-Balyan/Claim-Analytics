@@ -58,8 +58,7 @@ import { ForgetPasswordComponent } from './components/forget-password/forget-pas
       useClass: FakeBackendInterceptor,
       multi: true
     },
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    NavService
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
