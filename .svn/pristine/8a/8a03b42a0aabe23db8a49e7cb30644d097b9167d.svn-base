@@ -1,0 +1,7 @@
+.agree-terms{
+    cursor:pointer;
+}
+
+.disagree-terms{
+    cursor: not-allowed;
+}

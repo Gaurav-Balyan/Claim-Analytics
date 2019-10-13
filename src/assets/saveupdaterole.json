@@ -1,0 +1,49 @@
+{
+    "clientName":"Adminsure",
+    "roleName":"Admin",
+    "roleId":null,
+    "roleDesc":"Admin",
+    "statusActive":"test",
+    "privilegeComponentResponse": [
+            {
+                "componentId": 1,
+                "componentName": "Workers' Compensation",
+                "hierarchyId": 0,
+                "parentId": 0,
+                "isCheckBox":false,
+                "permission":""
+            },
+            {
+                "componentId": 2,
+                "componentName": "Risk Management",
+                "hierarchyId": 1,
+                "parentId": 1,
+                "isCheckBox":true,                
+                "permission":"R"
+            },
+            {
+                "componentId": 9,
+                "componentName": "Claim Management",
+                "hierarchyId": 1,
+                "parentId": 1,
+                "isCheckBox":true,               
+                "permission":"W"
+            },
+            {
+                "componentId": 27,
+                "componentName": "Alerts",
+                "hierarchyId": 0,
+                "parentId": 0,
+                "isCheckBox":true,
+                "permission":"P"
+            },
+            {
+                "componentId": 28,
+                "componentName": "User Management",
+                "hierarchyId": 0,
+                "parentId": 0,
+                "isCheckBox":true,
+                "permission":"R"
+            }
+        ]
+    }

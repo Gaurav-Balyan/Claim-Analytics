@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 180b06a3cba0f75ac6fe2dc1935f3dfb4eaf57dc unknown <Manoj@DESKTOP-K3H19JU.(none)> 1564752730 +0530	clone: from https://github.com/Gaurav-Balyan/Angular-Material-Practice.git
+180b06a3cba0f75ac6fe2dc1935f3dfb4eaf57dc 14f8b233a234f11001135426cab7c1f7b3bf5120 Gaurav-Balyan <gaurav.balyan24@gmail.com> 1565019252 +0530	commit: Made the landing report page functional
+14f8b233a234f11001135426cab7c1f7b3bf5120 9901a9cacf2bc65fdb74705eb87572ab2484ce44 Gaurav-Balyan <gaurav.balyan24@gmail.com> 1565024892 +0530	commit: Refactor files
+9901a9cacf2bc65fdb74705eb87572ab2484ce44 5d083d5b3e690316f5b4c6cf4de31544a9ae6be2 Gaurav-Balyan <gaurav.balyan24@gmail.com> 1565105905 +0530	commit: Constants file changed
+5d083d5b3e690316f5b4c6cf4de31544a9ae6be2 81a2eaf5320e608e5c52f9ef9dcf63a3d79bcf92 Gaurav-Balyan <gaurav.balyan24@gmail.com> 1565110172 +0530	commit: Display Username
+81a2eaf5320e608e5c52f9ef9dcf63a3d79bcf92 b41d5f880420a55b06394a40133aee298c5344ec Gaurav-Balyan <gaurav.balyan24@gmail.com> 1565110362 +0530	commit (merge): Display Username
+b41d5f880420a55b06394a40133aee298c5344ec 76428371a3b1c4dbb33dcce30d6bf6e48489f5b2 Gaurav-Balyan <gaurav.balyan24@gmail.com> 1565112222 +0530	commit: Resolved Header issue

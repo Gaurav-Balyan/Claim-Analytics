@@ -1,0 +1,10 @@
+<div class="modal-content dialog-success">
+    <mat-dialog-content class="modal-body">
+        <i class="material-icons mt-1">check_circle</i>
+        <h2 class="">{{data.message}}</h2>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button  [mat-dialog-close]="true" class="btn btn-success ng-star-inserted wid100">{{data.btnOk}}</button>
+        <button *ngIf="data.btnCancel" class="btn btn-danger ml-2 wid100" [mat-dialog-close]="false">{{data.btnCancel}}</button>
+    </mat-dialog-actions>
+</div>

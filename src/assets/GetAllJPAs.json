@@ -1,0 +1,22 @@
+{
+    "OK": true,
+    "message": "Success",
+    "jpasResponse": [
+        {
+            "jpaId": 2,
+            "jpaName": "Public Entity Risk Management Authority"
+        },
+        {
+            "jpaId": 3,
+            "jpaName": "Fabricated Metal Products"
+        },
+        {
+            "jpaId": 4,
+            "jpaName": "Public Agencies Self Insurance System"
+        },
+        {
+            "jpaId": 5,
+            "jpaName": "Non-Group"
+        }
+    ]
+}

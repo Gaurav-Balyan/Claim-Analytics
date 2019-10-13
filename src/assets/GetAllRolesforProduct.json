@@ -1,0 +1,24 @@
+{
+    "OK": true,
+    "message": "Success",
+    "rolesforProductResponse": [
+        {
+            "roleId": 1,
+            "roleName": "WC - Manager",
+            "roleDesc": "All KPIs for Workers' Compensation line of business",
+            "productVerId": 1
+        },
+        {
+            "roleId": 2,
+            "roleName": "WC - Risk Manager",
+            "roleDesc": "Risk Manager for Workers' Compensation",
+            "productVerId": 1
+        },
+        {
+            "roleId": 3,
+            "roleName": "WC - Claims Manager",
+            "roleDesc": "Claims Manager for Workers' Compensation",
+            "productVerId": 1
+        }
+    ]
+}

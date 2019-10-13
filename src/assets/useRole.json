@@ -1,0 +1,36 @@
+{
+    "OK": true,
+    "message": "Success",
+    "privilegeComponentResponse": [
+        {
+            "componentId": 1,
+            "componentName": "Workers' Compensation",
+            "hierarchyId": 0,
+            "parentId": 0
+        },
+        {
+            "componentId": 2,
+            "componentName": "Risk Management",
+            "hierarchyId": 1,
+            "parentId": 1
+        },
+        {
+            "componentId": 9,
+            "componentName": "Claim Management",
+            "hierarchyId": 1,
+            "parentId": 1
+        },
+        {
+            "componentId": 27,
+            "componentName": "Alerts",
+            "hierarchyId": 0,
+            "parentId": 0
+        },
+        {
+            "componentId": 28,
+            "componentName": "User Management",
+            "hierarchyId": 0,
+            "parentId": 0
+        }
+    ]
+}

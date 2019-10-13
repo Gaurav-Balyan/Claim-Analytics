@@ -1,0 +1,63 @@
+<div class="modal-content dialog-error">
+    <mat-dialog-content class="modal-body" style="width: 600px; padding:20px 40px;">
+        <h2 text-center>{{data.message}}</h2>
+        <div *ngIf="!data.viewRoles" class="alert alert-danger alert-dismissible as-alert" role="alert">
+           Please select role to veiw its definition.
+            
+        </div>
+        <div class="kt-portlet__body add-user" *ngIf="data.viewRoles">
+            <div class="row">
+                <div class="col-md-3 fw-500">
+                    Role Name
+                </div>
+                <div class="col-md-9">
+                    {{data.viewRoles.roleName}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 fw-500 ">
+                    Role Description
+                </div>
+                <div class="col-md-9">
+                    {{data.viewRoles.roleDesc}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-11 role bg-secondary">
+                    <b>Roles</b>
+                </div>
+                <div class="col-md-12">
+                    <table>
+                        <tr *ngFor="let item of data.viewRoles.roleResponse">
+                            <td class="fw-500">{{item.componentName}}</td>
+                            <td>
+                                <label *ngIf="item.permission===''">
+                                    <span class="data_table_check_box_p">None</span><span></span>
+                                </label>
+                            </td>
+                            <td>
+                                <label *ngIf="item.permission==='R'">
+                                    <span class="data_table_check_box_p">Viewer</span><span></span>
+                                </label>
+                            </td>
+                            <td>
+                                <label *ngIf="item.permission==='W'">
+                                    <span class="data_table_check_box_p">Explore</span><span></span>
+                                </label>
+                            </td>
+                            <td>
+                                <label *ngIf="item.permission==='P'">
+                                    <span class="data_table_check_box_p">Publish</span><span></span>
+                                </label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button mat-dialog-close color="primary"
+            class="action-button btn btn btn-danger wid100 mt-1 mb-5">CLOSE</button>
+    </mat-dialog-actions>
+</div>

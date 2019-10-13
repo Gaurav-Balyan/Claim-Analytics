@@ -1,0 +1,86 @@
+[{
+    "OK": true,
+    "message": "Successfull!",
+    "claimnumber": {
+        "claimNumber": "12481",
+        "insuredName": "City of Glendale",
+        "adjuster": null,
+        "injuryNature": null
+    },
+    "ClaimDetail": {
+        "icdCodeDescription": null,
+        "intialAdjusterEstimate": null,
+        "totalPaid": "191974.1300",
+        "dateOfCarrierNotification": null
+    },
+    "ClaimantDetail": {
+        "gender": "F",
+        "dateOfBirth": "01-11-1943 00:00:00",
+        "age": "36",
+        "employeeStatus": null
+    },
+    "ClaimSeverity": [
+        {
+            "claimNumber": "111-0001-121",
+            "severityDriver": "Location",
+            "currSeverityScore": "Medium",
+            "currSeverityDate": "08/03/2019",
+            "prevSeverityScore": "Low",
+            "prevSeverityDate": "08/03/2011",
+            "severityConfidence": "65%"
+        },
+        {
+            "claimNumber": "111-0001-121",
+            "severityDriver": "Location",
+            "currSeverityScore": "Medium",
+            "currSeverityDate": "08/03/2019",
+            "prevSeverityScore": "Low",
+            "prevSeverityDate": "08/03/2011",
+            "severityConfidence": "65%"
+        },
+        {
+            "claimNumber": "111-0001-121",
+            "severityDriver": "Location",
+            "currSeverityScore": "Medium",
+            "currSeverityDate": "08/03/2019",
+            "prevSeverityScore": "Low",
+            "prevSeverityDate": "08/03/2011",
+            "severityConfidence": "65%"
+        },
+        {
+            "claimNumber": "111-0001-121",
+            "severityDriver": "Location",
+            "currSeverityScore": "Medium",
+            "currSeverityDate": "08/03/2019",
+            "prevSeverityScore": "Low",
+            "prevSeverityDate": "08/03/2011",
+            "severityConfidence": "65%"
+        },
+        {
+            "claimNumber": "111-0001-121",
+            "severityDriver": "Location",
+            "currSeverityScore": "Medium",
+            "currSeverityDate": "08/03/2019",
+            "prevSeverityScore": "Low",
+            "prevSeverityDate": "08/03/2011",
+            "severityConfidence": "65%"
+        }
+    ],
+    "RestrictedDrugAlert": [
+        {
+            "paymentDate": "5/28/2002",
+            "prescribedDrug": "ASSAY OF AMPHETAMINE OR METHAM",
+            "category": "Stimulant"
+        },
+        {
+            "paymentDate": "5/28/2002",
+            "prescribedDrug": "ASSAY OF AMPHETAMINE OR METHAM",
+            "category": "Stimulant"
+        },
+        {
+            "paymentDate": "5/28/2002",
+            "prescribedDrug": "ASSAY OF AMPHETAMINE OR METHAM",
+            "category": "Stimulant"
+        }
+    ]
+}]

@@ -1,0 +1,264 @@
+<!-- begin:: Content -->
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid" style="margin-top:15px;">
+   <!-- <div *ngIf="err" >Data not found.</div> -->
+   <!--Begin::Dashboard 1-->
+   <!-- Optiom one Start -->
+   <div *ngIf="statusMessage" class="alert alert-danger alert-dismissible" role="alert">
+      Data not retrieved
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+      </button>
+   </div>
+   <div class="row">
+      <div class="col-xl-7 col-md-7">
+         <!--begin::Portlet-->
+         <div class="kt-portlet">
+            <div class="kt-portlet__head" style="min-height: auto;">
+               <div class="kt-portlet__head-label">
+                  <h3 class="kt-portlet__head-title padding7 fontW">
+                     Claim Detail
+                  </h3>
+               </div>
+               <!--<div class="kt-portlet__head-toolbar">
+                     <p class="mt-2">Showing 1 to 10 of 50 entries
+                     </p>
+                     </div>-->
+            </div>
+            <div class="kt-portlet__body padding10-10">
+               <div class="tab-content claim_detail_d2">
+                  <div class="row">
+
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="odd">
+                              <span class="span_lab">Claim Number</span>
+                              <span class="span_val">{{claimNumber?.claimNumber}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Insured Name</span>
+                              <span class="span_val">{{claimNumber?.insuredName}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Claimant Name</span>
+                              <span class="span_val">{{claimantDetail?.claimantName}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Date of Injury</span>
+                              <span class="span_val">{{claimNumber?.incidentDate | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Report Date</span>
+                              <span class="span_val">{{claimDetail?.dateofCarrierNotification | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                           <!-- <li class="">
+                                 <span class="span_lab">Adjusting Office</span>
+                                 <span class="span_val"></span>
+                              </li> -->
+                           <li class="odd">
+                              <span class="span_lab">Adjuster</span>
+                              <span class="span_val">{{claimNumber?.adjuster}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Claim Type</span>
+                              <span class="span_val">{{claimDetail?.claimType}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Total Paid</span>
+                              <span class="span_val">{{claimNumber?.totalPaid | number:'1.2-2'}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Reserves</span>
+                              <span class="span_val">{{claimNumber?.totalReserve | number:'1.2-2'}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <ul>
+
+                           <li class="odd">
+                              <span class="span_lab">Injury Cause </span>
+                              <span class="span_val">{{claimDetail?.claimCause}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Nature of Injury</span>
+                              <span class="span_val">{{claimNumber?.injuryNature}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Body Part</span>
+                              <span class="span_val">{{claimDetail?.bodyPart}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">ICD(s)</span>
+                              <span class="span_val">{{claimDetail?.icdCodeDescription}}</span>
+                           </li>
+                        </ul>
+                     </div>
+
+                  </div>
+                  <div class="row mt-2">
+                     <div class="col-md-12">
+                        <h5 class="head-border">Claimant Details </h5>
+                     </div>
+                     <div class="col-md-6" *ngIf="claimantDetail">
+                        <ul>
+                           <li class="odd">
+                              <span class="span_lab">Date of Birth</span>
+                              <span class="span_val">{{claimantDetail?.dateOfBirth | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Gender</span>
+                              <span class="span_val">{{claimantDetail?.gender}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Date of Hire</span>
+                              <span class="span_val">{{claimantDetail?.hireDate | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6" *ngIf="claimantDetail">
+                        <ul>
+                           <li class="odd">
+                              <span class="span_lab">Employment Status</span>
+                              <span class="span_val">{{claimantDetail?.employeeStatus}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Age (In days)</span>
+                              <span class="span_val">{{claimantDetail?.age}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Employment Tenure</span>
+                              <span class="span_val">{{claimantDetail?.employmentyTenure}}</span>
+                           </li>
+                        </ul>
+                     </div>
+
+                     <!-- <div class="col-md-7 mt-2">
+                           <button type="button" class="btn as_btn btn-hover-brand float-right ml-3 ">View Detailed
+                              Information</button>
+                        </div> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end::Portlet-->
+      </div>
+      <div class="col-xl-5 col-md-5">
+         <!--begin::Portlet-->
+         <div class="kt-portlet kt-portlet--tabs">
+            <div class="kt-portlet__head" style="min-height: auto;">
+               <div class="kt-portlet__head-label">
+                  <h3 class="kt-portlet__head-title padding7 mt-1 fontW">
+                     Severity Score
+                  </h3>
+               </div>
+            </div>
+            <div class="kt-portlet__body padding10-10">
+               <div class="tab-content claim_detail_d2">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div data-role="rangeslider" class="mt-1">
+                           <span *ngIf="claimSeverity">
+                              <p>Confidence Percentage <strong>{{claimSeverity[0]?.severityConfidence}}%</strong></p>
+                              <!-- <input type="range" min="2" max="100" [value]="claimSeverity[0]?.severityConfidence"
+                                 class="severity-slider" id="severity-slider" disabled> -->
+                                 <mat-slider min="1" max="100%"  [value]="claimSeverity[0]?.severityConfidence" disabled  ></mat-slider>
+                           </span>
+                        </div>
+                        <div class="progress" style="height: 30px;">
+                           <div class="progress-bar bg-success" style="width:33%">
+                              Low
+                           </div>
+                           <div class="progress-bar bg-warning" style="width:33%">
+                              Medium
+                           </div>
+                           <div class="progress-bar bg-danger" style="width:34%">
+                              High
+                           </div>
+                        </div>
+                        <div class="progress sev-bar-score" style="height: 30px;">
+                           <div class="progress-bar sev-bar-score" style="width:33%">
+                              <div class="row justify-content-around">
+                                 <span class="col-md-1 p-0"><i class="la la-dollar"></i>0K </span>
+                                 <span class="col-md-2 offset-md-6"></span>
+                              </div>
+                           </div>
+                           <div class="progress-bar sev-bar-score" style="width:33%">
+                              <div class="row justify-content-around">
+                                 <span class="col-md-1 p-0"><i class="la la-dollar"></i>16K </span>
+                                 <span class="col-md-2 offset-md-6 p-0"><i class="la la-dollar"></i>30K </span>
+                              </div>
+                           </div>
+                           <div class="progress-bar sev-bar-score" style="width:33%">
+                              <div class="row justify-content-around">
+                                 <span class="col-md-1"></span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-12 mt-1">
+                        <span *ngIf="claimSeverity">
+                           <p>Current Severity Level - <strong>{{claimSeverity[0]?.currSeverityScore}}</strong></p>
+                        </span>
+                        <!-- <p>Previous Severity Level - <strong>{{claimSeverity.prevSeverityScore}}</strong> (Changed on 15 Aug 2019)</p> -->
+                     </div>
+                     <div class="col-md-12">
+                        <h5 class="head-border">Top Drivers of Severity Score </h5>
+                        <div class="" *ngIf="claimSeverity">
+                           <ul>
+                              <li class="odd" *ngFor="let item of claimSeverity">
+                                 <span class="span_lab">{{item.severityDriver}}</span>
+                                 <span class="span_val"></span>
+                              </li>
+
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-12 mt-2">
+                        <h5 class="head-border">Notifications</h5>
+                        <p>Restricted Drugs on Prescription - Yes / No</p>
+                        <div class="as_table">
+                           <table class="table">
+                              <thead class="thead-light">
+                                 <tr>
+                                    <th>Date</th>
+                                    <th>Category</th>
+                                    <th>Drug</th>
+                                 </tr>
+                              </thead>
+                              <tbody *ngIf="restrictedDrugAlert">
+                                 <tr *ngFor="let item of restrictedDrugAlert">
+                                    <td>{{item.paymentDate | date:'MM/dd/yyyy'}}</td>
+                                    <td>{{item.category}}</td>
+                                    <td>{{item.prescribedDrug}}</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+
+                     <!-- <div class="col-md-12">
+                           <h5 class="head-border">Co-morbidities</h5>
+                           <div class="">
+                              <ul>
+                                 <li class="odd">
+                                    <span class="span_val"></span>
+                                 </li>
+                                 <li class="">
+                                    <span class="span_val"></span>
+                                 </li>
+   
+                              </ul>
+                           </div>
+                        </div> -->
+
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--end::Portlet-->
+      </div>
+   </div>
+   <!-- Optiom one End -->
+   <!--End::Dashboard 1-->
+</div>
+<!-- end:: Content -->

@@ -1,0 +1,248 @@
+<div *ngIf="statusMessage" class="alert alert-danger alert-dismissible" role="alert">
+   Data not retrieved
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+   </button>
+</div>
+<div class="detail-container">
+   <!-- Tabbing Start-->
+   <div style="display: none;">
+      <mat-button-toggle-group #colorToggle="matButtonToggleGroup" value="primary" aria-label="Change color">
+      </mat-button-toggle-group>
+   </div>
+   <div style="display: none;">
+      <mat-button-toggle-group #backgroundColorToggle="matButtonToggleGroup" value="primary" aria-label="Change color">
+      </mat-button-toggle-group>
+   </div>
+   <mat-tab-group [color]="colorToggle.value" [backgroundColor]="backgroundColorToggle.value">
+      <!-- Tab one Start -->
+      <mat-tab label="Claim">
+         <mat-accordion #myaccordion="matAccordion" multi="true">
+            <mat-expansion-panel [expanded]="true">
+               <mat-expansion-panel-header>
+                  <mat-panel-title>
+                     <b>Claim Number {{claimDetails?.claimnumber.claimNumber}}</b>
+                  </mat-panel-title>
+               </mat-expansion-panel-header>
+               <section>
+                  <div class="row claim_detail_d2">
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="">
+                              <span class="span_lab">Insured Name</span>
+                              <span class="span_val">{{claimDetails?.claimnumber.insuredName}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Nature of Injury</span>
+                              <span class="span_val">{{claimDetails?.claimnumber.injuryNature}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Organisation</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.organization}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Claim Status</span>
+                              <span class="span_val">{{claimDetails?.claimnumber.claimStatus}}</span>
+                           </li>
+
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="">
+                              <span class="span_lab">Adjuster</span>
+                              <span class="span_val">{{claimDetails?.claimnumber.adjuster}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Body Part</span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.bodyPart}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Claim Type</span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.claimType}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!--
+                   <table class="section--button__margin mr-3 mat-button ng-star-inserted" style="border:0;width:100%">
+                     <tr style=" background-color:#2f8489 ; " align="left" >
+                       <td>Injury Nature  </td>
+                       <td>{{claimDetails?.claimnumber.injuryNature}}</td>
+                     </tr>
+                     <tr>
+                         <td>Insured Name </td>
+                         <td>{{claimDetails?.claimnumber.insuredName}}</td>
+                       </tr>
+                       <tr style=" background-color:#2f8489 ; " align="left" >
+                           <td>Adjuster  </td>
+                           <td>{{claimDetails?.claimnumber.adjuster}}</td>
+                         </tr>
+                         <tr>
+                             <td>Injury Nature  </td>
+                             <td>{{claimDetails?.claimnumber.injuryNature}}</td>
+                         </tr>
+                   </table> 
+                   
+                   -->
+               </section>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="true">
+               <mat-expansion-panel-header>
+                  <mat-panel-title>
+                     <b> Claim Detail</b>
+                  </mat-panel-title>
+               </mat-expansion-panel-header>
+               <section>
+                  <div class="row claim_detail_d2">
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="">
+                              <span class="span_lab">Claim Cause </span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.claimCause}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Incident Date </span>
+                              <span class="span_val">{{claimDetails?.claimnumber.incidentDate | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Total Paid</span>
+                              <span class="span_val">$ {{claimDetails?.ClaimDetail.totalPaid | number:'1.2-2'}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Claim Age (In Days) </span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.age}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Litigated</span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.litigated}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="">
+                              <span class="span_lab">Icd Codes </span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.icdCodeDescription}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Report Date</span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.dateOfCarrierNotification | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Total Reserve</span>
+                              <span class="span_val">$ {{claimDetails?.claimnumber.totalReserve | number:'1.2-2'}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Report Lag (In Days) </span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.reportLag}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Subrogated</span>
+                              <span class="span_val">{{claimDetails?.ClaimDetail.subrogated}}</span>
+                           </li>
+
+                        </ul>
+                     </div>
+                  </div>
+                  <!--
+                   <table class="section--button__margin mr-3 mat-button ng-star-inserted" style="border:0;width:100%">
+                       <tr style=" background-color:#2f8489 ; " align="left" >
+                         <td>Icd Code Description  </td>
+                         <td>{{claimDetails?.ClaimDetail.icdCodeDescription}}</td>
+                       </tr>
+                       <tr>
+                           <td>Intial Adjuster Estimate </td>
+                           <td>{{claimDetails?.ClaimDetail.intialAdjusterEstimate}}</td>
+                       </tr>
+                       <tr style=" background-color:#2f8489 ; " align="left" >
+                         <td>Total Paid  </td>
+                         <td align="left" >{{claimDetails?.ClaimDetail.totalPaid}}</td>
+                       </tr>
+                       <tr>
+                           <td>Date Of Carrier Notification  </td>
+                           <td>{{claimDetails?.ClaimDetail.dateOfCarrierNotification}}</td>
+                         </tr>
+                     </table> 
+                   -->
+               </section>
+            </mat-expansion-panel>
+            <mat-expansion-panel [expanded]="true">
+               <mat-expansion-panel-header>
+                  <mat-panel-title>
+                     <b> Claimant Detail</b>
+                  </mat-panel-title>
+               </mat-expansion-panel-header>
+               <section>
+                  <div class="row claim_detail_d2">
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="">
+                              <span class="span_lab">Claimant Name</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.claimantName}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Gender</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.gender}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Occupation</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.occupation}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Hire Date</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.hireDate | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="col-md-6">
+                        <ul>
+                           <li class="">
+                              <span class="span_lab">Date Of Birth</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.dateOfBirth | date:'MM/dd/yyyy'}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab"> Age (In Years) </span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.claimantAge}}</span>
+                           </li>
+                           <li class="">
+                              <span class="span_lab">Employment Type</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.employeeStatus}}</span>
+                           </li>
+                           <li class="odd">
+                              <span class="span_lab">Marital Status</span>
+                              <span class="span_val">{{claimDetails?.ClaimantDetail.maritalStatus}}</span>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!--
+                   <table class="section--button__margin mr-3 mat-button ng-star-inserted" style="border:0;width:100%">
+                       <tr style=" background-color:#2f8489 ; " align="left" >
+                         <td>Gender </td>
+                         <td>{{claimDetails?.ClaimantDetail.gender}}</td>
+                       </tr>
+                       <tr>
+                           <td>Date Of Birth</td>
+                           <td>{{claimDetails?.ClaimantDetail.dateOfBirth}}</td>
+                         </tr>
+                         <tr style=" background-color:#2f8489 ; " align="left" >
+                             <td>Age  </td>
+                             <td>{{claimDetails?.ClaimantDetail.age}}</td>
+                           </tr>
+                           <tr>
+                               <td>Employee Status  </td>
+                               <td>{{claimDetails?.ClaimantDetail.employeeStatus}}</td>
+                             </tr>
+                     </table> 
+                     -->
+               </section>
+            </mat-expansion-panel>
+         </mat-accordion>
+      </mat-tab>
+      <!-- Tab One End -->
+      <!--<mat-tab label="Second"> Content 2 </mat-tab>
+       <mat-tab label="Third"> Content 3 </mat-tab> -->
+   </mat-tab-group>
+   <!-- Tabbing End-->
+</div>

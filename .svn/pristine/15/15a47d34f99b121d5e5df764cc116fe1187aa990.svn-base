@@ -1,0 +1,56 @@
+{
+    "OK": true,
+    "message": "1",
+    "GetRoleList": [
+        {
+            "roleName": "WC - Manager",
+            "roleDesc": "All KPIs for Workers' Compensation line of business",
+            "active": true
+        },
+        {
+            "roleName": "WC - Risk Manager",
+            "roleDesc": "Risk Manager for Workers' Compensation",
+            "active": true
+        },
+        {
+            "roleName": "WC - Claims Manager",
+            "roleDesc": "Claims Manager for Workers' Compensation",
+            "active": true
+        },
+        {
+            "roleName": "GL - Manager",
+            "roleDesc": "All KPIs for General Liability line of business",
+            "active": true
+        },
+        {
+            "roleName": "Severity RM",
+            "roleDesc": "All KPIs for SEverity score product",
+            "active": true
+        },
+        {
+            "roleName": "Admin",
+            "roleDesc": "Admin",
+            "active": true
+        },
+        {
+            "roleName": "AlertsRMNew",
+            "roleDesc": "test RM and Alerts",
+            "active": true
+        },
+        {
+            "roleName": "Admin",
+            "roleDesc": "Admin",
+            "active": true
+        },
+        {
+            "roleName": "Admin",
+            "roleDesc": "Admin",
+            "active": true
+        },
+        {
+            "roleName": "Admin",
+            "roleDesc": "Admin",
+            "active": true
+        }
+    ]
+}

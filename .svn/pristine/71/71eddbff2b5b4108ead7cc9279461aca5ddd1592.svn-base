@@ -1,0 +1,62 @@
+{
+    "OK": true,
+    "message": "Success",
+    "accountsForjpasResponse": [
+        {
+            "accId": 130,
+            "accName": "0044"
+        },
+        {
+            "accId": 132,
+            "accName": "0046"
+        },
+        {
+            "accId": 126,
+            "accName": "City of Barstow"
+        },
+        {
+            "accId": 137,
+            "accName": "City of Cathedral City"
+        },
+        {
+            "accId": 136,
+            "accName": "City of Coachella"
+        },
+        {
+            "accId": 127,
+            "accName": "City of Desert Hot Springs"
+        },
+        {
+            "accId": 139,
+            "accName": "City of Holtville"
+        },
+        {
+            "accId": 129,
+            "accName": "City of Murrieta"
+        },
+        {
+            "accId": 138,
+            "accName": "City of Palm Desert"
+        },
+        {
+            "accId": 135,
+            "accName": "City of Rancho Mirage"
+        },
+        {
+            "accId": 131,
+            "accName": "City of Victorville"
+        },
+        {
+            "accId": 134,
+            "accName": "City of Westmorland"
+        },
+        {
+            "accId": 128,
+            "accName": "Kern County Hospital Authority"
+        },
+        {
+            "accId": 133,
+            "accName": "SunLine Transit Agency"
+        }
+    ]
+}

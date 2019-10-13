@@ -1,0 +1,95 @@
+<div class="kt-grid kt-grid--ver kt-grid--root height-100">
+  <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
+    <div
+      class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
+      <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside"
+        style="background-image: url(./assets/style/img/bg-7.jpg);">
+        <div class="kt-grid__item  row">
+        </div>
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
+          <div class="kt-grid__item kt-grid__item--middle">
+            <div class="col-md-7 login-page-logo-back">
+             
+                <img src="./assets/style/img/KlearAI.png" style="width:90%; margin-left:8px;" />
+            
+            </div>
+            <h3 class="kt-login__title">
+              Welcome to KlearAI
+            </h3>
+            <h4 class="kt-login__subtitle">
+              A view through Hindsight, Insight and Foresight <br> of your critical claims data.
+            </h4>
+          </div>
+        </div>
+        <div class="kt-grid__item">
+          <div class="kt-login__info">
+            <div class="kt-login__copyright">
+            </div>
+            <div class="kt-login__menu">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
+        <div class="kt-login__body">
+          <div class="kt-login__form">
+            <div class="mt-1 login-page-client">
+              <img [src]="logo" style="width: 35%;" />
+            </div>
+            <h3>Reset Password</h3>
+            <form class="kt-form" [formGroup]="userForm" (ngSubmit)="onResetPassword()">
+              <div class="form-group">
+                <input class="form-control" type="password" placeholder="New Password" formControlName="password"
+                  autocomplete="off"
+                  [ngClass]="{ 'is-invalid': form_control.password.errors && (form_control.password.dirty || form_control.password.touched)}" />
+                <div
+                  *ngIf="form_control.password.errors && (form_control.password.dirty || form_control.password.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form_control.password.errors?.required" mt-1>
+                    Password is required
+                  </div>
+                  <div *ngIf="!form_control.password.errors?.required && form_control.password.errors?.validPassword" mt-1>
+                    Password is not adhering to password policy
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="password" placeholder="Confirm Password"
+                  formControlName="confirmPassword" autocomplete="off"
+                  [ngClass]="{ 'is-invalid': form_control.confirmPassword.errors && (form_control.confirmPassword.dirty || form_control.confirmPassword.touched)}" />
+                <div
+                  *ngIf="form_control.confirmPassword.errors && (form_control.confirmPassword.dirty || form_control.confirmPassword.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="form_control.confirmPassword.errors?.required" mt-1>
+                    Confirm Password is required
+                  </div>
+                  <div *ngIf="form_control.confirmPassword.errors?.mustMatch">
+                    Password and Confirm Password must match</div>
+                </div>
+              </div>
+              <div class="mt-4">
+                <button type="submit" id="kt_login_signin_submit" class="btn btn-primary btn-elevate as_btn">
+                  Reset Password
+                </button>
+                <span class="ml-3">Click here to <a href="#" class="kt-link kt-font-bold"> Login </a></span>
+              </div>
+              <p></p>
+              <div *ngIf="message" class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" (click)="clearError('message')" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div *ngIf="loginError" class="alert alert-danger alert-dismissible" role="alert">
+                {{loginError}}
+                <button type="button" class="close" (click)="clearError('loginError')" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

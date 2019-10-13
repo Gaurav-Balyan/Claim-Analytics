@@ -1,0 +1,167 @@
+[
+    {
+        "RoleName": "",
+        "RoleDescription": "",
+        "OK": true,
+        "message": "Successfull!",
+        "displayName": "Workers' Compensation",
+        "iconName": "attach_money",
+        "route": null,
+        "reportId": null,
+        "datasetId": null,
+        "workSpaceId": null,
+        "permission": {
+            "read": false,
+            "write": false,
+            "publish": false
+        },
+        "componentId": 0,
+        "accessTypeCode": null,
+        "parentId": 0,
+        "isSelected": false,
+        "isSelectedE": false,
+        "isSelectedC": false,
+        "level": 0,
+        "children": [
+            {
+                "OK": true,
+                "message": "Successfull!",
+                "displayName": "Claim Management",
+                "iconName": "widgets",
+                "route": null,
+                "reportId": null,
+                "datasetId": null,
+                "workSpaceId": null,
+                "permission": {
+                    "read": false,
+                    "write": false,
+                    "publish": false
+                },
+                "componentId": 0,
+                "accessTypeCode": null,
+                "parentId": 0,
+                "isSelected": false,
+                "isSelectedE": false,
+                "isSelectedC": false,
+                "level": 1,
+                "children": [
+                    {
+                        "OK": true,
+                        "message": "Successfull!",
+                        "displayName": "Overview",
+                        "iconName": "bar_chart",
+                        "route": null,
+                        "reportId": "43cedc8e-1069-4677-af89-d716c50d427e",
+                        "datasetId": "8da5f5d8-43e5-437c-b12e-e23171da57e4\r",
+                        "workSpaceId": "0335be74-d584-45c2-a82c-19ede3845f5d\r\n",
+                        "permission": {
+                            "read": true,
+                            "write": false,
+                            "publish": false
+                        },
+                        "componentId": 0,
+                        "accessTypeCode": null,
+                        "parentId": 0,
+                        "isSelected": false,
+                        "isSelectedE": false,
+                        "isSelectedC": false,
+                        "level": 2,
+                        "children": []
+                    },
+                    {
+                        "OK": true,
+                        "message": "Successfull!",
+                        "displayName": "Claim Volume",
+                        "iconName": "bar_chart",
+                        "route": null,
+                        "reportId": "37865083-261c-448c-b5e3-fccdb64cdc02\r\n",
+                        "datasetId": "8a6c8303-9279-4a58-9ec7-4906ad5485fe\r\n",
+                        "workSpaceId": "0335be74-d584-45c2-a82c-19ede3845f5d\r\n",
+                        "permission": {
+                            "read": true,
+                            "write": false,
+                            "publish": false
+                        },
+                        "componentId": 0,
+                        "accessTypeCode": null,
+                        "parentId": 0,
+                        "isSelected": false,
+                        "isSelectedE": false,
+                        "isSelectedC": false,
+                        "level": 2,
+                        "children": []
+                    },
+                    {
+                        "OK": true,
+                        "message": "Successfull!",
+                        "displayName": "Claim Conversion",
+                        "iconName": "bar_chart",
+                        "route": null,
+                        "reportId": "1d01d94a-8469-4371-a59d-334ec97b383c\r\n",
+                        "datasetId": "8a6c8303-9279-4a58-9ec7-4906ad5485fe\r\n",
+                        "workSpaceId": "0335be74-d584-45c2-a82c-19ede3845f5d\r\n",
+                        "permission": {
+                            "read": true,
+                            "write": false,
+                            "publish": false
+                        },
+                        "componentId": 0,
+                        "accessTypeCode": null,
+                        "parentId": 0,
+                        "isSelected": false,
+                        "isSelectedE": false,
+                        "isSelectedC": false,
+                        "level": 2,
+                        "children": []
+                    },
+                    {
+                        "OK": true,
+                        "message": "Successfull!",
+                        "displayName": "Claim Aging",
+                        "iconName": "bar_chart",
+                        "route": null,
+                        "reportId": "408f3c60-deb5-4468-8817-f4df7ed14604",
+                        "datasetId": "0335be74-d584-45c2-a82c-19ede3845f5d",
+                        "workSpaceId": "0335be74-d584-45c2-a82c-19ede3845f5d\r\n",
+                        "permission": {
+                            "read": true,
+                            "write": false,
+                            "publish": false
+                        },
+                        "componentId": 0,
+                        "accessTypeCode": null,
+                        "parentId": 0,
+                        "isSelected": false,
+                        "isSelectedE": false,
+                        "isSelectedC": false,
+                        "level": 2,
+                        "children": []
+                    },
+                    {
+                        "OK": true,
+                        "message": "Successfull!",
+                        "displayName": "Claim Expenses",
+                        "iconName": "bar_chart",
+                        "route": null,
+                        "reportId": "55cc95d6-ab14-4966-81ff-503a11dad71f\r\n",
+                        "datasetId": "8a6c8303-9279-4a58-9ec7-4906ad5485fe\r\n",
+                        "workSpaceId": "0335be74-d584-45c2-a82c-19ede3845f5d\r\n",
+                        "permission": {
+                            "read": true,
+                            "write": false,
+                            "publish": false
+                        },
+                        "componentId": 0,
+                        "accessTypeCode": null,
+                        "parentId": 0,
+                        "isSelected": false,
+                        "isSelectedE": true,
+                        "isSelectedC": false,
+                        "level": 2,
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+]

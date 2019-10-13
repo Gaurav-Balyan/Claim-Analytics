@@ -1,0 +1,212 @@
+
+<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid mt-4">
+<!-- Optiom one Start -->
+<!--<div class="col-md-6 padding7">
+     <span class="breadCrumb">{{item?.breadCrumb}}</span> 
+</div>-->
+<div class="row">
+    <div class="col-xl-12 col-md-12">
+        <!--begin::Portlet-->
+        <div class="kt-portlet">
+            <div class="kt-portlet__head" style="min-height: auto;">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        {{pageTitle}}
+                    </h3>
+                </div>
+                <div class="kt-portlet__head-toolbar \">
+                    <div class="kt-portlet__head-actions">
+                        <a class="btn btn-sm btn-icon btn-icon-md">
+                            <i class="fa fa-user-check kt-font-success" data-toggle="kt-tooltip" data-placement="top"
+                                title="Save User" (click)="UpsertUser()"></i>
+                        </a>
+                        <a class="btn btn-sm btn-icon btn-icon-md">
+                            <i class="fa fa-user-times kt-font-danger" data-toggle="kt-tooltip" data-placement="top"
+                                title="Cancel" (click)="cancelBtn()"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="statusMessage" class="alert alert-danger alert-dismissible as-alert" role="alert">
+                {{statusMessage}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form [formGroup]="userForm">
+                <div class="kt-portlet__body add-user">
+                    <div class="row mt-3">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">First Name <span class="kt-font-danger ">*</span></label>
+                                <input type="text" class="form-control form-control-as" placeholder="First Name"
+                                    formControlName="userFirstName">
+                                <div *ngIf="form_control.userFirstName.errors && (form_control.userFirstName.dirty || form_control.userFirstName.touched || formSubmitted)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form_control.userFirstName.errors?.required" mt-1>
+                                        First name is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">Last Name <span class="kt-font-danger ">*</span></label>
+                                <input type="text form-control-as" class="form-control form-control-as"
+                                    placeholder="Last Name" formControlName="userLastName">
+                                <div *ngIf="form_control.userLastName.errors && (form_control.userLastName.dirty || form_control.userLastName.touched || formSubmitted)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form_control.userLastName.errors?.required" mt-1>
+                                        Last name is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">Email <span class="kt-font-danger ">*</span></label>
+                                <input type="text" class="form-control form-control-as" placeholder="Email"
+                                    formControlName="userEmail">
+                                <div *ngIf="form_control.userEmail.errors && (form_control.userEmail.dirty || form_control.userEmail.touched || formSubmitted)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="form_control.userEmail.errors?.required" mt-1>
+                                        Email is required
+                                    </div>
+                                    <div *ngIf="!form_control.userEmail.errors?.required && form_control.userEmail.errors?.email" mt-1>
+                                        Please enter valid Email
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">Address Line 1</label>
+                                <input type="text" class="form-control form-control-as" placeholder="Address Line 1"
+                                    formControlName="userAdd1">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">Address Line 2</label>
+                                <input type="text" class="form-control form-control-as" placeholder="Address Line 2"
+                                    formControlName="userAdd2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">State</label>
+                                <input type="text" maxlength="2" class="form-control form-control-as"
+                                    placeholder="State" formControlName="userState">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">City</label>
+                                <input type="text" class="form-control form-control-as" placeholder="City"
+                                    formControlName="userCity">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as">Zip</label>
+                                <input type="text" class="form-control form-control-as" placeholder="Zip"
+                                    formControlName="userZip">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> 
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="add-userlab-as" for="exampleSelect1">Role <span
+                                        class="kt-font-danger ">*</span></label>
+                                <select class="form-control form-control-as" id="exampleSelect1" formControlName="roleId"
+                                    (change)="getRoleById(null,$event)">
+                                    <option value=''>Choose Role Name</option>
+                                    <option *ngFor="let item of userRole" [value]="item.roleId"> {{ item.roleName }}
+                                    </option>
+                                </select>
+                            </div>
+                            <div *ngIf="form_control.roleId.errors && (form_control.roleId.dirty || form_control.roleId.touched || formSubmitted)"
+                                class="alert alert-danger">
+                                <div *ngIf="form_control.roleId.errors?.required" mt-1>
+                                    Role is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn as_btn btn-sm margin-27" (click)="previewRole()" data-toggle="modal" data-target="#kt_modal_1_2">View
+                                /
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-9">
+                            <label class="add-userlab-as" for="exampleSelect1">Accounts/s</label>
+                            <div class="kt-radio-inline">
+                                <input type="radio" (click)="selectAccount('ACC')" value="ACC" name="accessLevel"
+                                    formControlName="accessLevel">Account Access
+                                <label class="kt-radio">
+                                </label>
+                                <input type="radio" value="JPA" name="accessLevel" formControlName="accessLevel"
+                                    (click)="selectAccount('JPA')">JPA Access
+                                <label class="kt-radio">
+                                </label>
+                                <input type="radio" (click)="selectAccount('All')" name="accessLevel"
+                                    formControlName="accessLevel" value="All">All
+                                <label class="kt-radio">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" *ngIf="isJPAIn && userJPA">
+                            <angular2-multiselect [data]="userJPA" formControlName="jpaAccess"
+                                [settings]="isJPASettings" (onSelect)="onJPAItemSelect($event)"
+                                (onDeSelect)="OnJPAItemDeSelect($event)" (onSelectAll)="onJPASelectAll($event)"
+                                (onDeSelectAll)="onJPADeSelectAll($event)">
+                            </angular2-multiselect>
+                            <div *ngIf="form_control.jpaAccess.errors" class="alert alert-danger">
+                                <div *ngIf="form_control.jpaAccess.errors?.required" mt-1>
+                                    JPA is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" *ngIf="isAccountIn && userAccountJPA">
+                            <angular2-multiselect [data]="userAccountJPA" formControlName="accountAccess"
+                                [settings]="isAccountAccessSettings" (onSelect)="onAccountAccessItemSelect($event)"
+                                (onDeSelect)="OnAccountAccessItemDeSelect($event)"
+                                (onSelectAll)="onAccountAccessSelectAll($event)"
+                                (onDeSelectAll)="onAccountAccessDeSelectAll($event)">
+                            </angular2-multiselect>
+                            <div *ngIf="form_control.accountAccess.errors" class="alert alert-danger">
+                                <div *ngIf="form_control.accountAccess.errors?.required" mt-1>
+                                    Accounts is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-27 ">
+                        <div class="col-md-2">
+                            <input type="button" class="btn as_btn margin-r10" value="Save" (click)="UpsertUser()"   />
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            (click)="cancelBtn()">Cancel</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <!--end::Portlet-->
+    </div>
+</div>
+<!-- Optiom one End -->
+
+</div>

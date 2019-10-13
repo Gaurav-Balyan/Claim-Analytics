@@ -1,0 +1,124 @@
+<div class="kt-portlet__body  kt-container--fluid  kt-grid__item kt-grid__item--fluid mt-4">
+
+    <div class="row">
+        <div class="col-xl-12 col-md-12">
+            <!--begin::Portlet-->
+            <div class="kt-portlet">
+                <div class="kt-portlet__head" style="min-height: auto;">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Add Role
+                        </h3>
+                    </div>
+                    <div class="kt-portlet__head-toolbar \">
+                        <div class="kt-portlet__head-actions">
+
+                            <a class="btn btn-sm btn-icon btn-icon-md">
+                                <i class="fa fa-user-check kt-font-success" data-toggle="kt-tooltip"
+                                    data-placement="top" title="" data-original-title="Save User"></i>
+                            </a>
+                            <a class="btn btn-sm btn-icon btn-icon-md">
+                                <i class="fa fa-user-times kt-font-danger" data-toggle="kt-tooltip" data-placement="top"
+                                    title="" data-original-title="Cancel"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="statusMessage" class="alert alert-danger alert-dismissible" role="alert">
+                    {{statusMessage}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form [formGroup]="userRoletForm" (submit)="SaveUserRole()">
+                    <div class="kt-portlet__body add-user">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="add-userlab-as">Role Name</label>
+                                    <input type="text" class="form-control form-control-as" placeholder="Role Name"
+                                        formControlName="roleName">
+                                    <input type="hidden" formControlName="clientName">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="add-userlab-as">Role Description</label>
+                                    <textarea class="form-control" id="exampleTextarea" rows="3"
+                                        formControlName="roleDesc"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="h-border"> Assign Privileges </h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Components</th>
+                                            <th>None</th>
+                                            <th>Viewer</th>
+                                            <th>Explorer</th>
+                                            <th>Creator</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let item of roleComponent">
+                                        <tr *ngIf="item.permissionRequired">
+                                            <td><b>{{item.componentName}}</b></td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name={{item.componentId}}
+                                                        (click)="ParrentSelect($event,item,'')" value=""
+                                                        [checked]="item.permission===''">
+                                                    <p class="data_table_check_box_p"></p><span></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name={{item.componentId}}
+                                                        (click)="ParrentSelect($event,item,'R')" value="R"
+                                                        [checked]="item.permission==='R'">
+                                                    <p class="data_table_check_box_p"></p><span></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name={{item.componentId}}
+                                                        (click)="ParrentSelect($event,item,'W')" value="W"
+                                                        [checked]="item.permission==='W'">
+                                                    <p class="data_table_check_box_p"></p><span></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name={{item.componentId}}
+                                                        (click)="ParrentSelect($event,item,'P')" value="P"
+                                                        [checked]="item.permission==='P'">
+                                                    <p class="data_table_check_box_p"></p><span></span>
+                                                </label>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row mt-2 mb-2">
+                            <div class="col-md-5">
+                                <input type="submit" class="btn as_btn" value="Save" />
+                                <button type="button" class="btn btn-secondary" (click)="cancelBtn()">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

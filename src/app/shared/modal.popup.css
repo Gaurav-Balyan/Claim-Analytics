@@ -1,0 +1,72 @@
+.modal-content i {
+    font-size:45px !important;
+    color: #82ca9c;
+}
+
+.modal-content{
+    background-color:#eaeaea !important;
+    min-width: 370px;
+    text-align: center;
+    border:1px solid #d2cfcf !important;
+}
+
+.modal-content p {
+    font-size: 22px;
+    color: #404040;
+    font-weight: normal; 
+}
+
+.modal-content h2 {
+    font-size: 18px;
+    color: #404040;
+    font-weight: normal;
+}
+
+.dialog-success .modal-body {
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #82ca9c;
+    
+}
+
+.dialog-success .mat-dialog-actions {
+    color: #fff;
+    background-color:none;
+    margin-bottom: 0;
+    padding: 0 10px;
+}
+
+.dialog-success .mat-button {
+    box-shadow: none !important;
+    color: #fff !important;
+    background-color: transparent !important;
+    border: none;
+}
+
+.dialog-success .mat-button:hover {
+    border: none;
+    background-color: transparent !important;
+}
+
+.dialog-error.mat-dialog-actions{
+    color: #fff;
+    background-color:none;
+    margin-bottom: 0;
+    padding: 0 10px;
+}
+
+.wid100 {width: 100px;}
+
+.mat-dialog-container {
+    display: block;
+    padding: 24px;
+    border-radius: 12px !important;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}

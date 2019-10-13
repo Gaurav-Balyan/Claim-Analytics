@@ -1,0 +1,17 @@
+.table {color: ##434349!important}
+.table th {
+    line-height: 0px;
+    margin: 0px;
+    height: 30px;
+}
+
+.table td {
+    border-top: 1px solid ccc;
+    padding:cpx;
+    line-height: 0px;
+    vertical-align: middle;
+}
+
+tr {line-height: 10px;}
+.table label {margin-bottom: 0px !important;}
+.table p {display: none;}
